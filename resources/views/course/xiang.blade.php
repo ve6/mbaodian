@@ -2,9 +2,7 @@
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>
-
-</title>
+<title></title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="renderer" content="webkit">
 <meta property="qc:admins" content="77103107776157736375">
@@ -13,7 +11,9 @@
 <meta http-equiv="Cache-Control" content="no-transform ">
 
 <meta name="Keywords" content="">
-<script src="js/push.js"></script><script src="js/rt.js" async="" type="text/javascript"></script><script type="text/javascript">
+<script src="js/push.js"></script>
+<script src="js/rt.js" async="" type="text/javascript"></script>
+    <script type="text/javascript">
 
       var OP_CONFIG={"module":"course","page":"view","userInfo":{"uid":"3116765","nickname":"qq_\u672c\u5bab\u672a\u6b7b\u4f11\u60f3\u7eb3\u59be_03116765","head":"http:\/\/img.mukewang.com\/user\/56f9e5ab0001e7b101000100-80-80.jpg","usertype":"1","roleid":0}};
   var isLogin = 1;
@@ -23,21 +23,38 @@ var is_choice = "";
 </script>
 
 
-<script>
-/*学习页通用配置*/
-var GC = {
-  course: {
-    id: 85,
-    name: 'Java入门第一季',
-    pic: 'http://img.mukewang.com/536059be00010b6d06000338-240-135.jpg',
-    video_url: 'http://v1.mukewang.com/935343da-25ee-4de7-93db-78f8bfb41c34/H.mp4'
-  },
-  classmates: 20 // 你的同学一页显示数量
-};
-</script>
+    <script>
+    /*学习页通用配置*/
+    var GC = {
+      course: {
+        id: 85,
+        name: 'Java入门第一季',
+        pic: 'http://img.mukewang.com/536059be00010b6d06000338-240-135.jpg',
+        video_url: 'http://v1.mukewang.com/935343da-25ee-4de7-93db-78f8bfb41c34/H.mp4'
+      },
+      classmates: 20 // 你的同学一页显示数量
+    };
+    </script>
 
-<link rel="stylesheet" href="css/a2.css" type="text/css">
-<script src="js/jquery_002.js" async="" charset="utf-8"></script><script src="js/seajs-text.js" async="" charset="utf-8"></script><script src="js/common.js" async="" charset="utf-8"></script><script src="js/share.js"></script><script src="js/string.js" async="" charset="utf-8"></script><script src="js/suggest.js" async="" charset="utf-8"></script><script src="js/store.js" async="" charset="utf-8"></script><script src="js/json.js" async="" charset="utf-8"></script><script src="javascripts/im.js" async="" charset="utf-8"></script><script src="js/view.js" async="" charset="utf-8"></script><link href="css/share_style0_16.css" rel="stylesheet"><script src="js/course_common.js" async="" charset="utf-8"></script><script src="js/course_collection.js" async="" charset="utf-8"></script><script src="js/socket.js" async="" charset="utf-8"></script><script src="js/jquery.js" async="" charset="utf-8"></script><script src="js/layer.js" async="" charset="utf-8"></script><link href="css/layer2.css" rel="stylesheet" charset="utf-8"></head>
+    <link rel="stylesheet" href="css/a2.css" type="text/css">
+    <script src="js/jquery_002.js" async="" charset="utf-8"></script>
+    {{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/common.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/share.js"></script>--}}
+    {{--<script src="js/string.js" async="" charset="utf-8">--}}
+    {{--</script><script src="js/suggest.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/store.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/json.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="javascripts/im.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/view.js" async="" charset="utf-8"></script>--}}
+    {{--<link href="css/share_style0_16.css" rel="stylesheet">--}}
+    {{--<script src="js/course_common.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/course_collection.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/socket.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/jquery.js" async="" charset="utf-8"></script>--}}
+    {{--<script src="js/layer.js" async="" charset="utf-8"></script>--}}
+    <link href="css/layer2.css" rel="stylesheet" charset="utf-8">
+</head>
 <body>
 
 @extends('layouts.master')
@@ -111,11 +128,11 @@ $l=isset($_GET['l'])?$_GET['l']:0;
         <h3>满意度评分</h3>
         <h4>9.9</h4>
         <div class="star-box">
-            <img src="images/xing.jpg" width="20" height="20">
-            <img src="images/xing.jpg" width="20" height="20">
-            <img src="images/xing.jpg" width="20" height="20">
-            <img src="images/xing.jpg" width="20" height="20">
-            <img src="images/xing.jpg" width="20" height="20">
+            <img src="images/xing.png" width="20" height="20">
+            <img src="images/xing.png" width="20" height="20">
+            <img src="images/xing.png" width="20" height="20">
+            <img src="images/xing.png" width="20" height="20">
+            <img src="images/xing.png" width="20" height="20">
         </div>
     </div><!--satisfaction-degree-info end-->
         <div class="condition-box">
@@ -180,11 +197,11 @@ $l=isset($_GET['l'])?$_GET['l']:0;
         <div class="evaluation-info clearfix">
           <p class="satisfaction">满意度评分：<em>9.9</em></p>
           <div class="star-box">
-              <img src="images/xing.jpg" width="20" height="20">
-              <img src="images/xing.jpg" width="20" height="20">
-              <img src="images/xing.jpg" width="20" height="20">
-              <img src="images/xing.jpg" width="20" height="20">
-              <img src="images/xing.jpg" width="20" height="20">
+              <img src="images/xing.png" width="20" height="20">
+              <img src="images/xing.png" width="20" height="20">
+              <img src="images/xing.png" width="20" height="20">
+              <img src="images/xing.png" width="20" height="20">
+              <img src="images/xing.png" width="20" height="20">
                                               </div><!--star-box end-->
           <p>内容实用：9.9</p>
           <p>通俗易懂：9.6</p>
@@ -200,11 +217,11 @@ $l=isset($_GET['l'])?$_GET['l']:0;
                     <div class="user-info clearfix">
                   <a href="#" class="username"><?php echo $v['user_phone']?></a>
                   <div class="star-box">
-                      <img src="images/xing.jpg" width="20" height="20">
-                      <img src="images/xing.jpg" width="20" height="20">
-                      <img src="images/xing.jpg" width="20" height="20">
-                      <img src="images/xing.jpg" width="20" height="20">
-                      <img src="images/xing.jpg" width="20" height="20">
+                      <img src="images/xing.png" width="20" height="20">
+                      <img src="images/xing.png" width="20" height="20">
+                      <img src="images/xing.png" width="20" height="20">
+                      <img src="images/xing.png" width="20" height="20">
+                      <img src="images/xing.png" width="20" height="20">
                    </div>
                 </div>
                 <p class="content"><?php echo $v['p_con']?></p>
@@ -227,7 +244,7 @@ $l=isset($_GET['l'])?$_GET['l']:0;
       <div class="box mb40">
       <h4>讲师提示</h4>
             <div class="teacher-info">
-        <a href="http://www.imooc.com/u/112258/courses?sort=publish" target="_blank">
+            <a href="http://www.imooc.com/u/112258/courses?sort=publish" target="_blank">
           <img src="picture/535f03950001915501400140-80-80.jpg" height="80" width="80">
         </a>
         <span class="tit">
@@ -356,7 +373,7 @@ $l=isset($_GET['l'])?$_GET['l']:0;
 <script src="js/ssologin.js"></script>
 <script type="text/javascript" src="js/sea.js"></script>
 <script type="text/javascript" src="js/sea_config.js"></script>
-<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+<script type="text/javascript">seajs.use("static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
 
  
 <script type="text/javascript">
@@ -420,15 +437,17 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
     $(document).on("click","#sub",function(){
         var con=$("#con").val()
         var c_id=$("#s_id").val()
+//        alert(con)
         $.post('index.php/con',{
             con:con,
             c_id:c_id
         },function(data){
-            //alert(data)
+            alert(data)
             if(data==1){
                 alert('请先登录');
                 location.href='index.php/login';
             }else{
+//                alert(data)
                 $("#list").html(data)
             }
         })

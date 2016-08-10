@@ -882,7 +882,7 @@ progress::-webkit-progress-value {
   -webkit-transition: background-position 0.15s;
   -moz-transition: background-position 0.15s;
   transition: background-position 0.15s;
-  background: url(../images/elevator.png) no-repeat;
+  background: url(images/elevator.png) no-repeat;
 }
 .elevator .elevator-diaocha {
   background-position: 0 -798px;

@@ -38,13 +38,13 @@
                     <div class="bd">
                         <ul class="">
                             <li class="course-nav-item <?=($vv==0)?'on':''?>" class="type" id="type">
-                               <a href="shiti?v=0&a=<?=$a?>&l=<?=$l?>"> 全部</a>
+                               <a href="shiti?v=0&a=0&l=0"> 全部</a>
                             </li>
 
                             <?php foreach($arr as $k=>$v){?>
 
                             <li class="course-nav-item <?=($vv==$v['c_id'])?'on':'';?>"  class="type" id="type">
-                               <a href="shiti?v=<?=$v['c_id']?>&a=<?=$a?>&l=<?=$l?>"><?=$v['c_name']?></a>
+                               <a href="shiti?v=<?=$v['c_id']?>&a=0&l=0"><?=$v['c_name']?></a>
                             </li>
                             <?php } ?>
                         </ul>

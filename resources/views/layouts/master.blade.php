@@ -5,15 +5,15 @@ session_start();
 }
 ?>
 <script src="js/jquery.js" async="" charset="utf-8"></script>
-<script src="js/seajs-text.js" async="" charset="utf-8"></script>
-<script src="js/common.js" async="" charset="utf-8"></script>
-<script src="js/string.js" async="" charset="utf-8"></script>
-<script src="js/suggest.js" async="" charset="utf-8"></script>
-<script src="js/store.js" async="" charset="utf-8"></script>
-<script src="js/json.js" async="" charset="utf-8"></script>
-<script src="js/im.js" async="" charset="utf-8"></script>
-<script src="js/index.js" async="" charset="utf-8"></script>
-<script src="js/socket.js" async="" charset="utf-8"></script>
+{{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/common.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/string.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/suggest.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/store.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/json.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/im.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/index.js" async="" charset="utf-8"></script>--}}
+{{--<script src="js/socket.js" async="" charset="utf-8"></script>--}}
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" type="text/css" href="static/css/ui2.css?2013032917">
 <div id="header">
@@ -35,7 +35,7 @@ session_start();
         <div id="login-area">
             <ul    <?php if(empty($_SESSION['username'])){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
                 <li class="header-app">
-                    <a href="/mobile/app">
+                    <a href="mobile/app">
                         <span class="icon-appdownload"></span>
                     </a>
                     <div class="QR-download">
@@ -60,10 +60,10 @@ session_start();
  
                 <li class="remind_warp">
                     <i class="msg_remind" style="display: none;"></i>
-                    <a href="/sms/messagesone" target="_blank"><i class="icon-notifi"></i></a>
+                    <a href="sms/messagesone" target="_blank"><i class="icon-notifi"></i></a>
                 </li>
         	    <li class="my_message">
-                    <a target="_blank" title="我的消息" href="/sms/messages">
+                    <a target="_blank" title="我的消息" href="sms/messages">
                         <span style="display: inline;" class="msg_icon">3</span>
                         <i class="icon-mail"></i>
                         <span style="display: none;">我的消息</span>
@@ -71,20 +71,20 @@ session_start();
                 </li>
                 <li class="set_btn user-card-box">
                     <a target="_self" href="/u/3071208/courses" action-type="my_menu" class="user-card-item" id="header-avator">
-                        <img width="40" height="40" src="/images/unknow-40.png">
+                        <img width="40" height="40" src="images/unknow-40.png">
                         <i style="display: none;" class="myspace_remind"></i>
                         <span style="display: none;">动态提醒</span>
                     </a>
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
+                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="images/unknow-160.png"></a>
                                 <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
                     
-                                <a class="icon-set setup" href="/user/setprofile"></a>
+                                <a class="icon-set setup" href="user/setprofile"></a>
                             </div>
                             <!--
                             <div class="card-links">
@@ -98,12 +98,12 @@ session_start();
                                     <span class="tit text-ellipsis">python进阶</span>
                                     <span class="media-name text-ellipsis">2-9 闭包</span>
                                     <i class="icon-clock"></i>
-                                     <a class="continue" href="/video/6059">继续</a>
+                                     <a class="continue" href="video/6059">继续</a>
                                 </span>
                             </div>
                             <div class="card-sets clearfix">
-                                <a class="l mr30" target="_blank" href="/wenda/save">发问题</a>
-                                <a class="l" target="_blank" href="/article/publish">写文章</a>
+                                <a class="l mr30" target="_blank" href="wenda/save">发问题</a>
+                                <a class="l" target="_blank" href="article/publish">写文章</a>
                                 <a class="r" href="out">退出</a>
                             </div>
                         </div>
