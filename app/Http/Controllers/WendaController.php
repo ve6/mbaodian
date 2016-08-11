@@ -1,9 +1,8 @@
 <?php
-use Illuminate\Pagination\LengthAwarePaginator;
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 class WendaController extends Controller
 {
     public function wenda(){
@@ -26,8 +25,6 @@ class WendaController extends Controller
             session_start();
         }
         header('Content-Type: text/html; charset=utf-8');
-       // $username = $_SESSION['username'];
-    
         if(empty($_SESSION['username'])){
             echo "<script>alert('请先登录'),location.href='index'</script>";die;
         }else{

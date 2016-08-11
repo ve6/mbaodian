@@ -203,62 +203,6 @@
     <a class="elevator-top" href="javascript:;" style="display:none" id="backTop"></a>
 </div>
 
-<script src="js/jquery-1.8.3.min.js"></script>
-<script>
-//    $(document).on("click",".leixing",function(){
-//        var leixing=$(this).attr('value');
-//        $.post('s',{
-//            leixing:leixing
-//        },function(data){
-//            $("#list").html(data)
-//
-//        })
-//    })
-//
-//    $(document).on("click",".leixing",function(){
-//        $("#type.course-nav-item").removeClass("on")
-//        $(this).parent().attr("class","course-nav-item on");
-//        var leixing=$(this).attr('value');
-//        var url=$('a[rel=prev]').attr('href');
-//        var url1=$('a[rel=next]').attr('href');
-//        $.post('sou',{
-//            leixing:leixing
-//        },function(data){
-//            $('a[rel=prev]').attr('href',url+'&lei='+leixing);
-//            $('a[rel=next]').attr('href',url1+'&lei='+leixing);
-//            alert(url+'&lei='+leixing)
-//            $("#zhuanye").html(data)
-//        })
-//    })
-//
-//    $(document).on("click",".zhuan",function(){
-//        $("#zhuan.course-nav-item").removeClass("on");
-//        $(this).parent().attr("class","course-nav-item on");
-//        var zhuanye=$(this).attr('value');
-//        var lei=$("#lei").children(".on").children().attr('value');
-//        $.post('zhuanye',{
-//            zhuan:zhuanye,
-//            lei:lei
-//        },function(data){
-//            $("#list").html(data)
-//        })
-//    })
-//
-//    $(document).on('click','.lei',function(){
-//        $("#lei.course-nav-item").removeClass("on");
-//        $(this).parent().attr('class','course-nav-item on');
-//       var lei=$(this).attr('value');
-//       var zhuan=$("#zhuanye").children(".on").children().attr('value');
-//       $.post('zhuanye',{
-//           zhuan:zhuan,
-//           lei:lei
-//       },function(data){
-//          // alert(data)
-//           $("#list").html(data)
-//       })
-//    })
-</script>
-
 </body>
 @endsection
 </html>

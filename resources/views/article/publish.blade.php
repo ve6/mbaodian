@@ -92,8 +92,7 @@
             <div class="tag-selector">
                 <label>标签</label>
                 <div class="tag-selector-wrap">
-                    <div class="target-box clearfix" id="biao">
-                    </div>
+                    <div class="target-box clearfix" id="biao"></div>
                     <p class="tip">您最多可以从以下选择3个标签哟！</p>
                     <div class="tag-box clearfix">
                     <?php foreach($a_lei as $k=>$v){?>
@@ -161,14 +160,16 @@
 <script type="text/javascript" src="js/psea_config.js"></script>
 <script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
 
-<div style="display: none">
+<div style="display: none"></div>
 <script src="js/jquery-1.9.1.min.js"></script>
 <script>
     $(document).on("click","#al_name",function(){
-        var a=$(this).attr("value")
+        var a=$(this).html();
+        alert(a);
         $("#biao").append(a)
 
     })
 </script>
 
-</body></html>
+</body>
+</html>
