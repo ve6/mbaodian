@@ -430,24 +430,22 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
    $(function(){
        $("#pinglun").hide()
    })
-    $(document).on("click",'#ping',function(){
-        $("#pinglun").show()
-
-    })
+   $('#ping').live('click',function(){
+       $("#pinglun").show()
+   })
     $(document).on("click","#sub",function(){
         var con=$("#con").val()
         var c_id=$("#s_id").val()
-//        alert(con)
         $.post('index.php/con',{
             con:con,
             c_id:c_id
         },function(data){
-            alert(data)
             if(data==1){
                 alert('请先登录');
                 location.href='index.php/login';
             }else{
-//                alert(data)
+                $('#con').val('')
+                $("#pinglun").hide()
                 $("#list").html(data)
             }
         })

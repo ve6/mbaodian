@@ -38,7 +38,8 @@ class CourseController extends Controller
             //全部试题
             $shi=DB::table('college_questions')->simplePaginate(12);
         }
-        return view('course/course',['arr'=>$xue,'zhuan'=>$zhuan,'shi'=>$shi,'lei'=>$lei]);
+//        $shi->setPath();
+        return view('course/course',['arr'=>$xue,'zhuan'=>$zhuan,'shi'=>$shi,'lei'=>$lei,'vv'=>$v,'a'=>$a,'l'=>$l]);
     }
     public function xiang(){
         $id=$_GET['id'];
@@ -71,7 +72,7 @@ class CourseController extends Controller
             $username=$_SESSION['username'];
             $u_id=DB::table('users')->where("user_phone","$username")->orwhere("user_email","$username")->first();
             $u_id=$u_id['user_id'];
-            $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id order by p_id desc");
+            $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id and e_id=$id order by p_id desc limit 5");
         }else{
             $ping=array();
         }
@@ -113,7 +114,7 @@ class CourseController extends Controller
             $u_id=$u_id['user_id'];
             $sql="insert into e_ping(p_con,u_id,e_id,e_addtime) values('$con',$u_id,'$c_id','$e_addtime')";
             $re=DB::insert($sql);
-            $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id order by p_id desc");
+            $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id and e_id=$c_id order by p_id desc limit 5");
             return view('course/ping',['ping'=>$ping]);
         }
     }

@@ -104,9 +104,12 @@
                                                 <span class="pager-num">
                             <b class="pager-cur">1</b>/<em class="pager-total">26</em>
                         </span>
-                                                <a href="javascript:void(0)" class="pager-action pager-prev hide-text disabled">上一页</a>
-
-                                                <a href="shiti?page=2&v=<?=$vv?>&a=<?=$a?>&l=<?=$l?>" class="pager-action pager-next hide-text">下一页</a>
+                        <?php if($p<=1){ ?>
+                        <a href="javascript:void(0)" class="pager-action pager-prev hide-text disabled">上一页</a>
+                        <?php }else{ ?>
+                        <a href="shiti?page=<?=$p-1?>&v=<?=$vv?>&a=<?=$a?>&l=<?=$l?>" class="pager-action pager-prev hide-text">上一页</a>
+                        <?php } ?>
+                        <a href="shiti?page=<?=$p+1?>&v=<?=$vv?>&a=<?=$a?>&l=<?=$l?>" class="pager-action pager-next hide-text">下一页</a>
                                             </span>
                 </div>
             </div>
@@ -179,17 +182,8 @@
 			    font-size:xx-large;
                         }
                     </style>
-             <span class="tool-item tool-pager">
-                        <span class="pager-num">
-    <b class="pager-cur"><?=$p?></b>/<em class="pager-total">26</em>
-</span>
-                 <?php if($p<=1){ ?>
-                 <a href="javascript:void(0)" class="pager-action pager-prev hide-text disabled">上一页</a>
-<?php }else{ ?>
-                 <a href="shiti?page=<?=$p-1?>&v=<?=$vv?>&a=<?=$a?>&l=<?=$l?>" class="pager-action pager-prev hide-text disabled">上一页</a>
-<?php } ?>
-                <a href="shiti?page=<?=$p+1?>&v=<?=$vv?>&a=<?=$a?>&l=<?=$l?>" class="pager-action pager-next hide-text">下一页</a>
-                    </span>
+            <?=$shi->appends(['v'=>$vv,'a'=>$a,'l'=>$l])->render()?>
+
         </div>
     </div>
 
