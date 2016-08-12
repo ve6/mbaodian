@@ -34,7 +34,7 @@ session_start();
                             </ul>
         </div>
         <div id="login-area">
-            <ul    <?php if(empty($_SESSION['username'])){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
+            <ul    <?php if(!Session::get('username')){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
                 <li class="header-app">
                     <a href="/mobile/app">
                         <span class="icon-appdownload"></span>
