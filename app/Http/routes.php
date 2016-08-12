@@ -25,10 +25,7 @@ Route::get('login', 'LoginController@login');
 Route::get('out', 'LoginController@out');
 Route::post('name', 'LoginController@name');
 Route::post('email', 'LoginController@email');
-Route::post('name_pwd','LoginController@name_pwd');
-Route::post('email_pwd','LoginController@email_pwd');
-Route::post('name_deng', 'LoginController@name_deng');
-Route::post('email_deng','LoginController@email_deng');
+Route::post('region','LoginController@region');
 
 //个人中心
 Route::get('user/setprofile', 'UserController@setprofile');
