@@ -1,4 +1,5 @@
 $(function(){
+    //验证注册
     var flag=false;
     $('#username').blur(function(){
         var username=$(this).val();
@@ -6,22 +7,23 @@ $(function(){
             $('#name_sp').html('用户名非空');
             return flag;
         }else{
-            $('#name_sp').html('');
-            flag=true;
-            return flag;
+            $('#name_sp').html("<font color='blue'>√</font>");
+            return flag=true;
         }
     })
-    var pwdflag=false
+    var pwdflag=false;
     $('#pwd').blur(function(){
-        // alert(123);
         var pwd=$(this).val();
+        var reg=/^\w{6,}$/;
         if(pwd=='') {
-            $('#sp_pwd').html('密码非空');
+            $('#sp_pwds').html('密码非空');
+            return pwdflag;
+        }else if(!reg.test(pwd)){
+            $('#sp_pwds').html("密码格式不正确");
             return pwdflag;
         }else{
-            $('#sp_pwd').html('');
-            pwdflag=true;
-            return pwdflag;
+            $('#sp_pwds').html("<font color='blue'>√</font>");
+            return pwdflag=true;
         }
     })
     var emailflag=false;
@@ -29,31 +31,36 @@ $(function(){
         var email=$("#email").val();
         var reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
         if(reg.test(email)){
-            $("#email_sp").html('')
-            emailflag=true;
+            $("#email_sp").html("<font color='blue'>√</font>");
+            return emailflag=true;
+        }else if(email==""){
+            $("#email_sp").html('email非空');
             return emailflag;
         }else{
-            $("#email_sp").html('格式错误')
+            $("#email_sp").html('格式错误');
             return emailflag;
         }
     })
     var phoneflag=false;
     $("#phone").blur(function(){
         var phone=$("#phone").val();
-        var reg = /^1[3|5|8]\d{9}$/;
+        var reg = /^1\d{10}$/;
         if(reg.test(phone)){
-            $("#phone_sp").html('')
-            phoneflag=true;
+            $("#phone_sp").html("<font color='blue'>√</font>");
+            return phoneflag=true;
+        }else if(phone==""){
+            $("#phone_sp").html('手机非空');
             return phoneflag;
         }else{
             $("#phone_sp").html('格式错误');
             return phoneflag;
         }
     })
+    //验证注册****
     $('.signup-form').submit(function(e){
         if(!flag||!phoneflag||!emailflag||!pwdflag){
             e.preventDefault()
-            alert(emailflag)
+            //alert(emailflag)
         }
     })
 
@@ -71,96 +78,27 @@ $(function(){
         }
     }
 
-
-
-    //$("#u_name").blur(function() {
-    //    var u_name = $("#u_name").val();
-    //    var reg = /^1\d{10}$/;
-    //    var email_reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-    //    if (reg.test(u_name)) {
-    //        $.post('name', {
-    //            u_name: u_name
-    //        }, function (data) {
-    //            alert(data)
-    //            if (data == 1) {
-    //                $("#sp_name").html('')
-    //            } else if (data == 2) {
-    //                $("#sp_name").html('不存在')
-    //            }
-    //        })
-    //
-    //    } else if (email_reg.test(u_name)) {
-    //        $.post('email', {
-    //            u_name: u_name
-    //        }, function (data) {
-    //            alert(data)
-    //            if (data == 1) {
-    //                $("#sp_name").html('')
-    //            } else if (data == 2) {
-    //                $("#sp_name").html('不存在')
-    //            }
-    //        })
-    //    } else {
-    //        $("#sp_name").html('格式错误')
-    //    }
-    //})
-    //$("#password").keyup(function() {
-    //
-    //    var u_name = $("#u_name").val()
-    //    var u_pwd = $("#password").val()
-    //    var reg = /^1\d{10}$/;
-    //    var email_reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-    //    if (reg.test(u_name)) {
-    //        $.post('name_pwd', {
-    //            u_name: u_name,
-    //            u_pwd: u_pwd
-    //        }, function (data) {
-    //            if (data == 3) {
-    //                $("#sp_pwd").html('')
-    //            } else if (data == 4) {
-    //                $("#sp_pwd").html('密码错误');
-    //            }
-    //        })
-    //    } else if (email_reg.test(u_name)) {
-    //        $.post('email_pwd', {
-    //            u_name: u_name,
-    //            u_pwd: u_pwd
-    //        }, function (data) {
-    //            if (data == 3) {
-    //                $("#sp_pwd").html('')
-    //            } else if (data == 4) {
-    //                $("#sp_pwd").html('密码错误');
-    //            }
-    //        })
-    //    }
-    //})
+    /*jQuery 验证登陆*/
     $("#sub").click(function(){
-        var u_name=$("#u_name").val()
-        var u_pwd=$("#password").val()
-        var reg = /^1\d{10}$/;
-        var email_reg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-        if (reg.test(u_name)) {
-            $.post('name_deng',{
-                u_name:u_name,
-                u_pwd:u_pwd
-            },function(data){
-                if(data==5){
-                    location.href='index';
-                }else if(data==6){
-                    alert('用户名或密码错误');location.href='login';
+        var u_name = $('#u_name').val();
+        var password = $('#password').val();
+        if(u_name=='' || password==''){
+            $('#region').html('请确认登陆信息');
+            return false;
+        }else{
+            $.post("region", { name: u_name, pwd: password},
+                function(data){
+                    //alert(data);
+                    if(data==1){
+                       alert('登陆成功');window.location.reload();
+                    }else{
+                        alert('登陆失败');
+                    }
                 }
-            })
-        }else if(email_reg.test(u_name)){
-            $.post('email_deng',{
-                u_name:u_name,
-                u_pwd:u_pwd
-            },function(data){
-                if(data==5){
-                    location.href='index';
-                }else if(data==6){
-                    alert('用户名或密码错误');location.href='login';
-                }
-            })
+            );
         }
+
     })
+
+
 })

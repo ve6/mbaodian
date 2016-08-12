@@ -1,15 +1,15 @@
-@section('sidebar')
-<meta name="_token" content="{{ csrf_token() }}"/>
+<?php $__env->startSection('sidebar'); ?>
+<meta name="_token" content="<?php echo e(csrf_token()); ?>"/>
 <script src="/js/jquery.js" async="" charset="utf-8"></script>
-{{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/common.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/string.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/suggest.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/store.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/json.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/im.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/index.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/socket.js" async="" charset="utf-8"></script>--}}
+<?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/common.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/string.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/suggest.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/store.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/json.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/im.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/index.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/socket.js" async="" charset="utf-8"></script>*/ ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" type="text/css" href="/static/css/ui2.css?2013032917">
 <div id="header">
@@ -128,8 +128,8 @@
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
     <ul class="login-bind-tp">
-        {{--<li class="qweibo"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> QQ登录</a> </li>
-        <li class="sina"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> 微博登录</a> </li>--}}
+        <?php /*<li class="qweibo"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> QQ登录</a> </li>
+        <li class="sina"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
     <a href=""> <p>还没有账号,立即注册</p></a><br>
     <form class="login-form clearfix" method="post" action="">
@@ -169,12 +169,12 @@
 <div class="modal in" id="signup-modal" > <a class="close" data-dismiss="modal">×</a>
     <h1>注册</h1>
     <ul class="login-bind-tp">
-        {{--<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
-        <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>--}}
+        <?php /*<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
+        <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
     <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
-        {{--<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">--}}
+        <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
         <!--<script>
             function zhu(){
                 // alert(checkname());
@@ -214,7 +214,7 @@
 </div>
 <!--注册end-->
 
-@show
+<?php echo $__env->yieldSection(); ?>
 <SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
 <script src="/js/index1.js"></script>
 <div class="footer bg-white idx-minwidth">
