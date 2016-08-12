@@ -71,7 +71,7 @@ class LoginController extends Controller
                         $request->session()->set('username',$name);
                         echo "<script>alert('注册成功');location.href='index'</script>";
                     }else{
-                        echo "<script>alert('注册失败');location.href='index'</script>";
+                        echo "<script>alert('注册失败');</script>";
                     }
                 }
             }
