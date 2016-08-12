@@ -62,7 +62,7 @@ var isLogin=1
                 <span class="spacer l">15小时前</span>
                 <span class="spacer l spacer-2">120浏览</span>
                 <a class="spacer l" href="#comment" >2评论</a>
-                                                                                                            </div>
+            </div>
         </div>
 
         <div class="detail-content ">
@@ -76,15 +76,15 @@ var isLogin=1
             
         <div class="active-box clearfix">
             <!-- 推荐 --> 
-                        <div class="praise-box l">
+            <div class="praise-box l like">
                 <span id="js-praise" data-id="7997" class="dc-praise l">
                     <i class="sns-thumb-up l"></i>
                     <span class="praise l">推荐</span>
                 </span>
                 <var class="cutoff l">|</var>
-                <span class="praise-num">7</span>
+                <span class="praise-num"><?=$arr['at_zan']?></span>
             </div>  
-                        <!-- 推荐end -->
+            <!-- 推荐end -->
 
             <!-- 分享 -->
             <div class="share-rl-tips share-posi js-share-statue">
@@ -276,37 +276,33 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
 
 <!--script-->
 <script src="/js/jquery-1.9.1.min.js"></script>
+
       <script>
-          $(document).on("click","#ping",function(){
-              use=$("#user").val();
-              if(use==0){
-                  alert("请先登录");
-                  location.href="index";
-              }
-          })
-          $(document).on("click","#tijiao",function(){
-              ping=$("#ping").val();
-              a_id=$("#a_id").val();
-              $.post('wping',{
-                  ping:ping,
-                  a_id:a_id
-              },function(data){
-                 //$("#aping").html(data)
-                  var data=eval("("+data+")");
-                  var rp='';
-                  //rp+=' <div style="float:right" id="aping">';
-                  rp+='<div id="aping">';
-                  rp+='<h2 style="align-content: center;margin-top: 20px"><center><font    color="red">评论内容</font></center></h2>';
-                  rp+='</div>';
-                  rp+='<div style="margin-top: 10px">';
-                  for(i in data){
-                      rp+='<img src="picture/ww.jpeg" width="40px" height="40px"/>';
-                      rp+='<span>'+data[i]["user_phone"].substr(0,3)+'****'+data[i]["user_phone"].substr(7,4)+'</span>';
-                      rp+='<h4>'+data[i]['ap_con']+'</h4>';
-                  }
-                  rp+='</div>';
-                  //rp+='</div>';
-                  $("#aping").html(rp);
+          $(function() {
+              $('.like').click(function () {
+//                  $.ajaxSetup({
+//                      headers: {
+//                          'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+//                      },
+//                      url:"name_deng",
+//                      type:"post"
+//                  });
+//                  $.ajax({
+//                      data:{
+//
+//                      },success:function(data){
+//
+//                      }
+//                  })
+
+                  $.post('zan', {zan:<?=$_GET['id']?>}, function (data) {
+                      if(data==1){
+                          $(this).removeClass('like')
+                          $(this).addClass('endlike')
+                      }else{
+                          alert(data)
+                      }
+                  })
               })
           })
       </script>

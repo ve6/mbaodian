@@ -40,12 +40,12 @@
         <div class="article-left l">
 
             <ul class="article-tab clearfix">
-                <li  class="tabactive" >
-                    <a data-id="0" id="type" value="0" >全部</a>
+                <li  class="<?=($at==0)?'tabactive':''?>" >
+                    <a data-id="0" id="type" value="0" href="article?at=0">全部</a>
                 </li>
                 <?php foreach($at_type as $k=>$v){?>
-                <li >
-                    <a data-id="105"  id="type" value="<?php echo $v['at_type']?>"><?php echo $v['at_type']?></a>
+                <li  class="<?=($at==$v['at_id'])?'tabactive':''?>" >
+                    <a data-id="105" href="article?at=<?=$v['at_id']?>"  id="type" value="<?=$v['at_type']?>"><?=$v['at_type']?></a>
                 </li>
                 <?php }?>
             </ul>
@@ -65,7 +65,7 @@
                     <h3 class="item-title">
                         <a href="fangfa?id=<?php echo $v['a_id']?>" target="_blank" class="title-detail"><?php echo $v['a_title']?></a>
                     </h3>
-                    <p class="item-bd"><?php echo $v['a_con']?></p>
+                    <p class="item-bd"><?php echo mb_strlen($v['a_con'])>30?mb_substr($v['a_con'],0,30).'...':$v['a_con']?></p>
                     <div class="item-btm clearfix">
                         <ul class="l left-info">
                             <li class="hd-pic">
@@ -82,14 +82,11 @@
                         </ul>
                         <div class="r right-info">
                             <div class="favorite l" id="zan" value="<?php echo $v['a_id']?>">
-                                <img src="images/zan.jpg"  class="zan" width="15" height="20">
+                                <img src="/images/zan.jpg"  class="zan" width="15" height="20">
 
                                 <em id="z-<?php echo $v['a_id']?>">点赞
-                                    <?php echo $v['a_num']?>
+                                    <?php echo $v['at_zan']?>
                                 </em>
-
-
-
                             </div>
                             <div class="item-judge l">
                                 <i class="icon sns-comment"></i><em>评论 0</em>
@@ -98,7 +95,11 @@
                     </div>
                 </div>
             </div>
-<?php } ?>
+            <?php
+                }
+                $article->render()
+
+                ?>
 
         </div>
         </div>

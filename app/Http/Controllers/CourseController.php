@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 use DB;
 class CourseController extends Controller
 {
-    public function course(){
+    /*
+     * 试题展示
+     */
+    public function course()
+    {
         $v=isset($_GET['v'])?$_GET['v']:0;
         $a=isset($_GET['a'])?$_GET['a']:0;
         $l=isset($_GET['l'])?$_GET['l']:0;
@@ -41,7 +45,11 @@ class CourseController extends Controller
 //        $shi->setPath();
         return view('course/course',['arr'=>$xue,'zhuan'=>$zhuan,'shi'=>$shi,'lei'=>$lei,'vv'=>$v,'a'=>$a,'l'=>$l]);
     }
-    public function xiang(){
+    /*
+     * 试题详情
+     */
+    public function xiang()
+    {
         $id=$_GET['id'];
         $v=isset($_GET['v'])?$_GET['v']:0;
         $a=isset($_GET['a'])?$_GET['a']:0;
@@ -98,6 +106,9 @@ class CourseController extends Controller
       //  echo $arr['img'];die;
         return view('course/xiang',['arr'=>$arr,'ping'=>$ping,'max'=>$arr_max['c_id'],'min'=>$arr_min['c_id']]);
     }
+    /*
+     *
+     */
 	 public function con()
     {
         $con = $_POST['con'];
@@ -110,8 +121,8 @@ class CourseController extends Controller
                   session_start();
             }
             $username=$_SESSION['username'];
-            $u_id=DB::table('users')->where("user_phone","$username")->orwhere("user_email","$username")->first();
-            $u_id=$u_id['user_id'];
+            $user=DB::table('users')->where("user_phone","$username")->orwhere("user_email","$username")->first();
+            $u_id=$user['user_id'];
             $sql="insert into e_ping(p_con,u_id,e_id,e_addtime) values('$con',$u_id,'$c_id','$e_addtime')";
             $re=DB::insert($sql);
             $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id and e_id=$c_id order by p_id desc limit 5");

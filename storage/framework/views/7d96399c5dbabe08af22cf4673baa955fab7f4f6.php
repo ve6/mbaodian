@@ -4,7 +4,8 @@ if(!isset($_SESSION)){
 session_start(); 
 }
 ?>
-<script src="js/jquery.js" async="" charset="utf-8"></script>
+<meta name="_token" content="<?php echo e(csrf_token()); ?>"/>
+<script src="/js/jquery.js" async="" charset="utf-8"></script>
 <?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
 <?php /*<script src="js/common.js" async="" charset="utf-8"></script>*/ ?>
 <?php /*<script src="js/string.js" async="" charset="utf-8"></script>*/ ?>
@@ -15,33 +16,33 @@ session_start();
 <?php /*<script src="js/index.js" async="" charset="utf-8"></script>*/ ?>
 <?php /*<script src="js/socket.js" async="" charset="utf-8"></script>*/ ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="stylesheet" type="text/css" href="static/css/ui2.css?2013032917">
+<link rel="stylesheet" type="text/css" href="/static/css/ui2.css?2013032917">
 <div id="header">
     <div class="page-container" id="nav">
-        <a href="http://www.mbaodian.com/" target="_self"><img src="images/login.png" style="float: left; padding-top:6px;"><a href="index" target="_self" class="hide-text"></a>
+        <a href="http://www.mbaodian.com/" target="_self"><img src="/images/login.png" style="float: left; padding-top:6px;"><a href="/index" target="_self" class="hide-text"></a>
         <div class="g-menu-mini l">
             <a href="#" class="menu-ctrl">
                 <i class="icon-menu"></i>
             </a>
             <ul class="nav-item l">
-                <li><a href="shiti"  target="_self">试题</a></li>
-                <li><a href="program"  target="_self">招聘</a></li>
-                <li><a href="article"  target="_self">方法</a></li>
-                <li><a href="company"  target="_self">简历</a></li>
-		<li><a href="wenda" target="_self">答疑</a></li>
+                <li><a href="/shiti"  target="_self">试题</a></li>
+                <li><a href="/program"  target="_self">招聘</a></li>
+                <li><a href="/article"  target="_self">方法</a></li>
+                <li><a href="/company"  target="_self">简历</a></li>
+		<li><a href="/wenda" target="_self">答疑</a></li>
         <!--         <li><a href="/wiki"  target="_self">WIKI</a></li> -->
                             </ul>
         </div>
         <div id="login-area">
             <ul    <?php if(empty($_SESSION['username'])){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
                 <li class="header-app">
-                    <a href="mobile/app">
+                    <a href="/mobile/app">
                         <span class="icon-appdownload"></span>
                     </a>
                     <div class="QR-download">
                         <p id="app-text">面试宝典APP下载</p>
                         <!--<p id="app-type">iPhone / Android / iPad</p>-->
-                        <img src="images/erweima.png">
+                        <img src="/images/erweima.png">
                     </div>
                 </li>
                 
@@ -60,10 +61,10 @@ session_start();
  
                 <li class="remind_warp">
                     <i class="msg_remind" style="display: none;"></i>
-                    <a href="sms/messagesone" target="_blank"><i class="icon-notifi"></i></a>
+                    <a href="/sms/messagesone" target="_blank"><i class="icon-notifi"></i></a>
                 </li>
         	    <li class="my_message">
-                    <a target="_blank" title="我的消息" href="sms/messages">
+                    <a target="_blank" title="我的消息" href="/sms/messages">
                         <span style="display: inline;" class="msg_icon">3</span>
                         <i class="icon-mail"></i>
                         <span style="display: none;">我的消息</span>
@@ -71,20 +72,20 @@ session_start();
                 </li>
                 <li class="set_btn user-card-box">
                     <a target="_self" href="/u/3071208/courses" action-type="my_menu" class="user-card-item" id="header-avator">
-                        <img width="40" height="40" src="images/unknow-40.png">
+                        <img width="40" height="40" src="/images/unknow-40.png">
                         <i style="display: none;" class="myspace_remind"></i>
                         <span style="display: none;">动态提醒</span>
                     </a>
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="images/unknow-160.png"></a>
+                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
                                 <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
                     
-                                <a class="icon-set setup" href="user/setprofile"></a>
+                                <a class="icon-set setup" href="/user/setprofile"></a>
                             </div>
                             <!--
                             <div class="card-links">
@@ -98,13 +99,13 @@ session_start();
                                     <span class="tit text-ellipsis">python进阶</span>
                                     <span class="media-name text-ellipsis">2-9 闭包</span>
                                     <i class="icon-clock"></i>
-                                     <a class="continue" href="video/6059">继续</a>
+                                     <a class="continue" href="/video/6059">继续</a>
                                 </span>
                             </div>
                             <div class="card-sets clearfix">
-                                <a class="l mr30" target="_blank" href="wenda/save">发问题</a>
-                                <a class="l" target="_blank" href="article/publish">写文章</a>
-                                <a class="r" href="out">退出</a>
+                                <a class="l mr30" target="_blank" href="/wenda/save">发问题</a>
+                                <a class="l" target="_blank" href="/article/publish">写文章</a>
+                                <a class="r" href="/out">退出</a>
                             </div>
                         </div>
                         <i class="card-arr"></i>
@@ -173,18 +174,18 @@ session_start();
         <?php /*<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
         <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
-    <p><a href="index">已有账号,直接登录</p></a><br/>
+    <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
         <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
         <script>
             function zhu(){
                 // alert(checkname());
                 //  if(flag&&emailflag&&phoneflag){
-                if(flag&&emailflag&&phoneflag)
+                if(flag&&emailflag&&phoneflag){
                     return true;
-            }else{
-                return false;
-            }
+                }else{
+                    return false;
+                }
             }
         </script>
         <p class="error"></p>
@@ -215,14 +216,14 @@ session_start();
 </div>
 
 <?php echo $__env->yieldSection(); ?>
-<SCRIPT src="js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
-<script src="js/index1.js"></script>
+<SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
+<script src="/js/index1.js"></script>
 <div class="footer bg-white idx-minwidth">
   <div class="container">
 
       <div style="text-align:center;margin-top:-10px;padding-bottom:10px;">
       <!--可信网站图片LOGO安装开始-->
-      <script src="js/seallogo.dll"></script>
+      <script src="/js/seallogo.dll"></script>
       <!--可信网站图片LOGO安装结束-->
     </div>
   </div>
@@ -258,7 +259,7 @@ session_start();
         </div>
     </div>
 </div>
-<script src="static/js/landing-min.js?2013032917"></script>
+<script src="/static/js/landing-min.js?2013032917"></script>
 
 <div style="text-align:center;clear:both"></div>
 

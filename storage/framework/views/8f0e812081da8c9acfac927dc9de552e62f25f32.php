@@ -35,13 +35,14 @@
 </script>
 <div class="opus-wrap clearfix">
 <form action="add" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>"/>
     <div class="article-left l">
         <h1 class="article-title">发布文章</h1>
         <div class="article-form">
             <div class="form-group clearfix">
                 <label for="art-title" class="form-label l"><span>*</span>标题</label>
                 <div class="form-ipt-wrap">
-                    <input id="art-title" name="a_title" class="art-title" placeholder="请输入标题" type="text">
+                    <input id="art-title" name="a_title" class="art-title" placeholder="请输入标题">
                     <p class="form-ipt-error"></p>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                 <label for="art-cat" class="form-label l"><span>*</span>栏目</label>
                 <div class="form-ipt-wrap">
                     <select name="a_type" id="art-cat">
-                        <option selected="selected"  name="a_type">请选择栏目</option>
+                        <option selected="selected" value="0" name="a_type">请选择栏目</option>
                         <?php foreach($ar_type as $k=>$v){?>
                         <option value="<?php echo $v['at_id']?>"><?php echo $v['at_type']?></option>
                         <?php } ?>
@@ -92,12 +93,11 @@
             <div class="tag-selector">
                 <label>标签</label>
                 <div class="tag-selector-wrap">
-                    <div class="target-box clearfix" id="biao">
-                    </div>
+                    <div class="target-box clearfix" id="biao"></div>
                     <p class="tip">您最多可以从以下选择3个标签哟！</p>
                     <div class="tag-box clearfix">
                     <?php foreach($a_lei as $k=>$v){?>
-                        <span tag-id="12" name="al_name" id="al_name" value="<?php echo $v['al_name']?>"><?php echo $v['al_name']?></span>
+                        <span tag-id="12" name="al_name" id="al_name" gid="<?php echo $v['al_id']?>" value="<?php echo $v['al_name']?>"><?php echo $v['al_name']?></span>
                     <?php } ?>
                     </div>
                 </div><!--tag-selector-wrap end-->
@@ -105,7 +105,7 @@
             <div class="form-group form-bottom">
                 <label for="" class="form-label l"></label>
                 <div class="form-ipt-wrap">
-                    <input type="submit" class="btn btn-green" value="提交"><span class="submit-tip js-submit-tip"></span>        <p id="js-msg" class="form-ipt-error"></p>
+                    <input type="submit" class="btn btn-green" id="subm" value="提交"><span class="submit-tip js-submit-tip"></span>        <p id="js-msg" class="form-ipt-error"></p>
                 </div>
             </div>
         </div>
@@ -164,10 +164,49 @@
 <div style="display: none"></div>
 <script src="js/jquery-1.9.1.min.js"></script>
 <script>
-    $(document).on("click","#al_name",function(){
-        var a=$(this).attr("value")
-        $("#biao").append(a)
+    $(function(){
+        $('#art-title').click(function(){
+            $(this).css('border','#fff 0 solid')
+        })
+        $('#art-cat').click(function(){
+            $(this).css('border','#fff 0 solid')
+        })
+        $('#wmd-input-js-mk').click(function(){
+            $(this).css('border','#fff 0 solid')
+        })
+        $("#al_name").live("click",function(){
+            var num=$('#biao').children('span').length
+            if(num<3){
+                $(this).attr('id','al_names').css('cursor','pointer').appendTo('#biao')
+                var id=$(this).attr('gid');
+                $('#biao').append('<input type="hidden" name="tag[]" value="'+id+'"/>')
+            }else{
+                alert('您最多可以选择3个标签哟！')
+            }
+        })
+        $("#al_names").live("click",function(){
+            var id=$(this).attr('gid');
+//        $(':hidden[value='+id+']').remove();
+            $(this).attr('id','al_name').appendTo('.tag-box')
+        })
+        $('form').submit(function(e){
+            var title=$('#art-title').val()
+            var cat=$('#art-cat').val()
+            var content=$('#wmd-input-js-mk').val()
+            if(title==''||cat==0||content==''){
+                if(title==''){
+                    $('#art-title').css('border','#f00 3px solid')
+                }
+                if(cat==0){
+                    $('#art-cat').css('border','#f00 3px solid')
+                }
+                if(content==''){
+                    $('#wmd-input-js-mk').css('border','#f00 3px solid')
+                }
+                e.preventDefault()
+            }
 
+        })
     })
 </script>
 
