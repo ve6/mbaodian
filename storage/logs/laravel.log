@@ -607,3 +607,6 @@ Stack trace:
 #40 D:\phpStudy\WWW\canon\mbaodian\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 D:\phpStudy\WWW\canon\mbaodian\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #42 {main}  
+[2016-08-12 07:51:06] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '{'' in D:\phpStudy\WWW\canon\mbaodian\storage\framework\views\7d96399c5dbabe08af22cf4673baa955fab7f4f6.php:50
+Stack trace:
+#0 {main}  
