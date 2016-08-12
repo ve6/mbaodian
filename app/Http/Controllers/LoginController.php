@@ -84,7 +84,4 @@ class LoginController extends Controller
         echo "<script>alert('退出成功');location.href='index'</script>";
     }
 
-
-
-
  }
