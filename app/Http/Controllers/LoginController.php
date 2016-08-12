@@ -97,6 +97,7 @@ class LoginController extends Controller
                     $arr=DB::insert("insert into users(user_name,user_pwd,user_email,user_phone) values('$name','$pwd','$email','$phone');");
                     if($arr){
                         $request->session()->set('username',$name);
+                        $request->session()->set('u_id',DB::insertGetId());
                         echo "<script>alert('注册成功');location.href='index'</script>";
                     }else{
                         echo "<script>alert('注册失败');location.href='index'</script>";
