@@ -63,8 +63,12 @@ class ArticleController extends Controller
      */
     public function zan(Request $request){
         $a_id=$request->input('zan');
-//        $request->session()->set('username','zjw');
-        echo $request->session()->get('username');
+        $add=DB::insert('insert into `article_zan` (u_id, article_id) values (?, ?)', [$request->session()->get('u_id'),$a_id]);
+        if($add){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
     
     

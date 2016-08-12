@@ -280,25 +280,14 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}&lt;/styl
       <script>
           $(function() {
               $('.like').click(function () {
-//                  $.ajaxSetup({
-//                      headers: {
-//                          'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-//                      },
-//                      url:"name_deng",
-//                      type:"post"
-//                  });
-//                  $.ajax({
-//                      data:{
-//
-//                      },success:function(data){
-//
-//                      }
-//                  })
-
+                  var num=$('.praise-num').html();
+                  var _this=$(this);
                   $.post('zan', {zan:<?=$_GET['id']?>}, function (data) {
+                      alert(data)
                       if(data==1){
-                          $(this).removeClass('like')
-                          $(this).addClass('endlike')
+                          _this.removeClass('like');
+                          _this.addClass('endlike')
+                          $('.praise-num').html(parseInt(num)+1);
                       }else{
                           alert(data)
                       }
