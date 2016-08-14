@@ -87,6 +87,8 @@ Route::post('zan', 'ArticleController@zan');
 Route::post('type', 'ArticleController@type');
 Route::get('fangfa', 'ArticleController@wxiang');
 Route::post('wping', 'ArticleController@wping');
+Route::post('collect', 'ArticleController@collect');
+
 //招聘
 Route::get('program', 'ProgramController@program');
 Route::get('etc', 'ProgramController@etc');
