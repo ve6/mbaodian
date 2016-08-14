@@ -13,7 +13,7 @@ class CompanyController extends Controller
 		$ra = DB::select($re);
 		$sql = "select * from company";
 		$arr = DB::select($sql);
-		$exam = DB::table('shiti')->simplePaginate(9);
+		$exam = DB::table('shiti')->simplePaginate(8);
 		return view('company/index',['arr'=>$arr,'re'=>$ra,'exam'=>$exam]);
 	}
 	//根据专业查询试题

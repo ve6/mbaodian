@@ -26,9 +26,10 @@ Route::get('out', 'LoginController@out');
 Route::post('name', 'LoginController@name');
 Route::post('email', 'LoginController@email');
 Route::post('region','LoginController@region');
+Route::get('qqLogin','LoginController@qqLogin');
 
 //个人中心
-Route::get('user/setprofile', 'UserController@setprofile');
+Route::get('user/setprofile', 'UserController@setprofile');//个人资料
 Route::get('user/setavator', 'UserController@setavator');
 Route::get('user/setphone', 'UserController@setphone');
 Route::get('user/setverifyemail', 'UserController@setverifyemail');

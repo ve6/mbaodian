@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use open51094;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -39,10 +41,37 @@ class LoginController extends Controller
         if($user){
             $request->session()->set('u_id',$user['user_id']);
 			$request->session()->set('username',$name);
+            $request->session()->set('name',$user['user_name']);
             echo 1;
         }else{
             echo 2;
         }
+    }
+    /**
+     * qq第三方登录
+     */
+    public function qqLogin(Request $request){
+        include 'open51094.class.php';
+        $open = new open51094();
+        $code=$request->input('code');
+        //var_dump( $open->me($code) );die;
+        $data=$open->me($code);
+       // var_dump($data);die;
+        $qqname=$data['name'];
+        //echo qqname;die;
+        $only=$data['uniq'];
+        $sel= DB::table('users')->where('user_openid',$only)->first();
+       // var_dump();die;
+        if($sel){
+            $qq_name = $sel['user_nickname'];
+            $user_id = $sel['user_id'];
+            $request->session()->set('name',$qq_name);
+            $request->session()->set('user_id',$user_id);
+        }else{
+            DB::table('users')->insert(['user_nickname'=> $qqname,'user_openid'=>$only]);
+            $request->session()->set('name',$qqname);
+        }
+        return redirect()->action('IndexController@index');
     }
     
     //注册
@@ -80,6 +109,7 @@ class LoginController extends Controller
 
     public function out(Request $request){
         $request->session()->forget('username');
+        $request->session()->forget('name');
         $request->session()->forget('u_id');
         echo "<script>alert('退出成功');location.href='index'</script>";
     }

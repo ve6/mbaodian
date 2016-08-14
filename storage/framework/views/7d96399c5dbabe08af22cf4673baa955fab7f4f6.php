@@ -79,8 +79,8 @@ session_start();
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
-                                <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
+                                <a href="user/setprofile"><img class="l" alt="{{Session::get('name')}}" src="/images/unknow-160.png"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis">{{Session::get('name')}}</span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>

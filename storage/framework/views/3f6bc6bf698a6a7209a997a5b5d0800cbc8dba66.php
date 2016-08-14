@@ -29,7 +29,14 @@
                             </ul>
         </div>
         <div id="login-area">
-            <ul    <?php if(!Session::get('username')){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
+            <ul
+                    <?php if(Session::get("name")): ?>
+                        class="clearfix logined"
+                    <?php else: ?>
+                        class="header-unlogin clearfix"
+                    <?php endif; ?>
+            >
+
                 <li class="header-app">
                     <a href="/mobile/app">
                         <span class="icon-appdownload"></span>
@@ -40,19 +47,14 @@
                         <img src="/images/erweima.png">
                     </div>
                 </li>
-                
-		<?php
-                    if(!Session::get('username')){
-                        ?>
+                    <?php if(!Session::get("name")): ?>
                 <li class="header-signin">
                     <a href="#login-modal" id="" data-category="UserAccount" data-action="login" data-toggle="modal" >登录</a>
                 </li>
                 <li class="header-signup">
                     <a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal" >注册</a>
                 </li>
-                    <?php
-                    }else{
-                        ?>
+                   <?php else: ?>
  
                 <li class="remind_warp">
                     <i class="msg_remind" style="display: none;"></i>
@@ -66,20 +68,21 @@
                     </a>
                 </li>
                 <li class="set_btn user-card-box">
-                    <a target="_self" href="/u/3071208/courses" action-type="my_menu" class="user-card-item" id="header-avator">
-                        <img width="40" height="40" src="/images/unknow-40.png">
+                    <a target="_self" href="/user/setprofile" action-type="my_menu" class="user-card-item" id="header-avator">
+                        <img width="50" height="50" src="/images/unknow-40.png">
                         <i style="display: none;" class="myspace_remind"></i>
                         <span style="display: none;">动态提醒</span>
                     </a>
+                    <!--用户登录显示的用户信息-->
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
-                                <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
+                                <a href="user/setprofile"><img class="l" alt="<?php echo e(Session::get('name')); ?>" src="/images/unknow-160.png"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis"><?php echo e(Session::get('name')); ?></span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
-                    
+
                                 <a class="icon-set setup" href="/user/setprofile"></a>
                             </div>
                             <!--
@@ -106,10 +109,7 @@
                         <i class="card-arr"></i>
                     </div>
                 </li>
- 
-                    <?php
-                    }
-                ?>
+                  <?php endif; ?>
             </ul>
         </div>
         <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
@@ -127,17 +127,23 @@
 <!--登陆start-->
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
-    <ul class="login-bind-tp">
-        <?php /*<li class="qweibo"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> QQ登录</a> </li>
-        <li class="sina"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
-    </ul>
-    <a href=""> <p>还没有账号,立即注册</p></a><br>
+    <?php /*<ul class="login-bind-tp">
+        <li class="qweibo"> <a href=""><em>&nbsp;</em> QQ登录</a> </li>
+        <li class="sina"> <a href=""><em>&nbsp;</em> 微博登录</a> </li>
+    </ul>*/ ?>
+    还没有账号?<a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal">立即注册</a>
+    <br>
     <form class="login-form clearfix" method="post" action="">
 
         <div class="form-arrow"></div>
         <input id="u_name" type="text" placeholder="手机号或邮箱：">
 
         <input id="password" type="password" placeholder="密码：">
+
+        <!--第三方登录start-->
+        <script type="text/javascript" src="http://open.51094.com/user/myscript/157aec390af50a.html"></script>
+        <span id="hzy_fast_login"></span>
+        <!--第三方登录end-->
 
         <input type="button" name="type" class="button-blue login" value="登录" id="sub">
 		<font color="red"><center><span id="region"></span></center></font>
@@ -172,7 +178,6 @@
         <?php /*<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
         <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
-    <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
         <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
         <!--<script>
