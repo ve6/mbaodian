@@ -1,9 +1,4 @@
 @section('sidebar')
-<?php 
-if(!isset($_SESSION)){
-session_start(); 
-}
-?>
 <meta name="_token" content="{{ csrf_token() }}"/>
 <script src="/js/jquery.js" async="" charset="utf-8"></script>
 {{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
@@ -128,6 +123,8 @@ session_start();
         </div>
     </div>
 </div>
+
+<!--登陆start-->
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
     <ul class="login-bind-tp">
@@ -139,12 +136,11 @@ session_start();
 
         <div class="form-arrow"></div>
         <input id="u_name" type="text" placeholder="手机号或邮箱：">
-        <font color="red"><span id="sp_name"></span></font>
 
         <input id="password" type="password" placeholder="密码：">
-        <font color="red"> <span id="sp_pwd"></span></font>
 
         <input type="button" name="type" class="button-blue login" value="登录" id="sub">
+		<font color="red"><center><span id="region"></span></center></font>
         <input type="hidden" name="return-url" value="">
         <div class="clearfix"></div>
         <label class="remember">
@@ -167,7 +163,9 @@ session_start();
         </ul>
     </form>
 </div>
+<!--登陆end-->
 
+<!--注册start-->
 <div class="modal in" id="signup-modal" > <a class="close" data-dismiss="modal">×</a>
     <h1>注册</h1>
     <ul class="login-bind-tp">
@@ -177,7 +175,7 @@ session_start();
     <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
         {{--<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">--}}
-        <script>
+        <!--<script>
             function zhu(){
                 // alert(checkname());
                 //  if(flag&&emailflag&&phoneflag){
@@ -187,7 +185,7 @@ session_start();
                     return false;
                 }
             }
-        </script>
+        </script>-->
         <p class="error"></p>
         <input type="text" name="username" id="username" data-validate="email" autocomplete="off" class="ipt ipt-email" placeholder="请输入名称 " onblur="checkname();"><font color="red"><p class="tips" id="name_sp"></p></font>
         <input type="password" name="password"  class="ipt ipt-pwd js-pass-pwd" placeholder="6-16位密码，区分大小写，不能用空格" id="pwd"  style="background-image:url('');
@@ -214,6 +212,7 @@ session_start();
         </ul>
     </form>
 </div>
+<!--注册end-->
 
 @show
 <SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>

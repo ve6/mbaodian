@@ -27,52 +27,24 @@ class LoginController extends Controller
             echo 2;
         }
     }
-    public function name_pwd(Request $request){
-        $u_name=$request->input('u_name');
-        $u_pwd=$request->input('u_pwd');
-        $arr=DB::table('users')->where('user_phone',"$u_name")->where('user_pwd',"$u_pwd")->get();
-        if($arr){
-            echo 3;
+
+    //验证登陆
+    public function region(Request $request){
+		$name=$request->input('name');
+		$pwd=$request->input('pwd');
+        
+        //echo $name;
+        $user = DB::table('users')->where(['user_phone'=>"$name",'user_pwd'=>"$pwd"])
+			->orwhere(['user_email'=>"$name",'user_pwd'=>"$pwd"])->first();
+        if($user){
+            $request->session()->set('u_id',$user['user_id']);
+			$request->session()->set('username',$name);
+            echo 1;
         }else{
-            echo 4;
+            echo 2;
         }
     }
-    public function email_pwd(Request $request){
-        $u_name=$request->input('u_name');
-        $u_pwd=$request->input('u_pwd');
-        $arr=DB::table('users')->where('user_email',"$u_name")->where('user_pwd',"$u_pwd")->get();
-        if($arr){
-            echo 3;
-        }else{
-            echo 4;
-        }
-    }
-    public function name_deng(Request $request){
-        $u_name=$request->input('u_name');
-        $u_pwd=$request->input('u_pwd');
-        $arr=DB::table('users')->where('user_phone',"$u_name")->where('user_pwd',"$u_pwd")->first();
-        //print_r($arr);die;
-        if($arr){
-            $request->session()->set('u_id',$arr['user_id']);
-            $request->session()->set('username',$u_name);
-            echo 5;
-        }else{
-            echo 6;
-        }
-    }
-    public function email_deng(Request $request){
-        $u_name=$request->input('u_name');
-        $u_pwd=$request->input('u_pwd');
-        $arr=DB::table('users')->where('user_email',"$u_name")->where('user_pwd',"$u_pwd")->first();
-        //print_r($arr);die;
-        if($arr){
-            $request->session()->set('u_id',$arr['user_id']);
-            $request->session()->set('username',$u_name);
-            echo 5;
-        }else{
-            echo 6;
-        }
-    }
+    
     //注册
     public function register(){
         return view('login/register');

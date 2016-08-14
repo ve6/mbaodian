@@ -442,7 +442,6 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
         },function(data){
             if(data==1){
                 alert('请先登录');
-                location.href='index.php/login';
             }else{
                 $('#con').val('')
                 $("#pinglun").hide()
