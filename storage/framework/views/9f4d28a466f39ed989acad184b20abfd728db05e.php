@@ -66,7 +66,7 @@ var is_choice = "";
   <div class="setting-right">
     <div class="setting-right-wrap wrap-boxes settings" >
         
-
+<?php /*个人资料start*/ ?>
 <div id="setting-profile" class="setting-wrap setting-profile">
     <form id="profile" >
     
@@ -178,7 +178,7 @@ var is_choice = "";
     </form>
     
 </div>
-
+<?php /*个人资料end*/ ?>
 
     </div>
   </div>
