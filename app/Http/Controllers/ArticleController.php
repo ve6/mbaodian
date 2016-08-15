@@ -48,6 +48,21 @@ class ArticleController extends Controller
         $a_title=$request->input('a_title');
         $a_type=$request->input('a_type');
         $a_con=$request->input('a_con');
+        $file=$request->file('a_logo');
+        if($file){
+            if($file -> isValid()){
+                $arr=['jpg','png','gif'];
+                $type = $file -> getClientOriginalExtension();
+                if(in_array($type,$arr)){
+                    echo 1;
+                }else{
+                    echo 0;
+                }
+                $path = $file -> move('storage/uploads');
+            }
+        }
+
+        print_r($file);die;
         $a_addtime=date("Y-m-d H:i:s");
         $re=DB::insert("insert into article(a_title,a_type,a_con,a_addtime) values('$a_title',$a_type,'$a_con','$a_addtime')");
         if($re){

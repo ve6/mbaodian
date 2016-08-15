@@ -70,7 +70,7 @@
                         <ul class="l left-info">
                             <li class="hd-pic">
                                 <a class="publisher-hd" href="#" >
-                                    <img src="" alt="" width="20" height="20" />
+                                    <img src="<?php echo e($v['a_logo']); ?>" alt="" width="20" height="20" />
                                 </a>
                                 <a class="publisher-name" href="#" >用户</a>
                             </li>

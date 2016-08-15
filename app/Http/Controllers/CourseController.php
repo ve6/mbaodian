@@ -69,8 +69,11 @@ class CourseController extends Controller
             $arr['c_type']=$type['t_name'];
         }
         if($arr){
-            $arr_max=DB::table('college_questions')->where('c_id','>',$id)->where($arr)->first();
-            $arr_min=DB::table('college_questions')->where('c_id','<',$id)->where($arr)->orderby('c_id','desc')->first();
+            $arr_max=DB::table('college_questions')->select('c_id')->where('c_id','>',$id)->where($arr)->first();
+            $arr_min=DB::table('college_questions')->select('c_id')->where('c_id','<',$id)->where($arr)->orderby('c_id','desc')->first();
+        }else{
+            $arr_max=DB::table('college_questions')->select('c_id')->where('c_id','>',$id)->first();
+            $arr_min=DB::table('college_questions')->select('c_id')->where('c_id','<',$id)->orderby('c_id','desc')->first();
         }
         $sq=DB::update("update college_questions set c_num=c_num+1 where c_id=".$id);
         $arr=DB::table('college_questions')->where('c_id',$id)->first();
@@ -78,13 +81,6 @@ class CourseController extends Controller
         $ping=DB::table('e_ping')
             ->join('users','e_ping.u_id','=','users.user_id')
             ->where('e_id',$id)->orderby('p_id','desc')->take(5)->get();
-//        if(!empty($username)){
-//            $u_id=DB::table('users')->where("user_phone","$username")->orwhere("user_email","$username")->first();
-//            $u_id=$u_id['user_id'];
-//            $ping=DB::select("select * from users inner join e_ping on users.user_id=e_ping.u_id where u_id=$u_id and e_id=$id order by p_id desc limit 5");
-//        }else{
-//            $ping=array();
-//        }
         if($arr['c_college']=='软工学院'){
             $arr['img']='http://123.56.249.121/api/logo/软工.jpg';
         }elseif($arr['c_college']=='移动通信学院'){
@@ -104,7 +100,6 @@ class CourseController extends Controller
         }elseif($arr['c_college']=='传媒学院'){
             $arr['img']='http://123.56.249.121/api/logo/传媒.jpg';
         }
-      //  echo $arr['img'];die;
         return view('course/xiang',['arr'=>$arr,'ping'=>$ping,'max'=>$arr_max['c_id'],'min'=>$arr_min['c_id']]);
     }
     /*
