@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="css/d79d81e9ab144c28aae8b073106e6881.css" type="text/css" />
 </head>
 <body  id="List_courseId">
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
     @parent
 <div id="main">
     <div class="container">
@@ -204,5 +204,7 @@
 </div>
 
 </body>
-@endsection
+<?php $__env->stopSection(); ?>
 </html>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

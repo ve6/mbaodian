@@ -1,9 +1,4 @@
 <?php $__env->startSection('sidebar'); ?>
-<?php 
-if(!isset($_SESSION)){
-session_start(); 
-}
-?>
 <meta name="_token" content="<?php echo e(csrf_token()); ?>"/>
 <script src="/js/jquery.js" async="" charset="utf-8"></script>
 <?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
@@ -34,7 +29,7 @@ session_start();
                             </ul>
         </div>
         <div id="login-area">
-            <ul    <?php if(empty($_SESSION['username'])){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
+            <ul    <?php if(!Session::get('username')){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
                 <li class="header-app">
                     <a href="/mobile/app">
                         <span class="icon-appdownload"></span>
@@ -47,7 +42,7 @@ session_start();
                 </li>
                 
 		<?php
-                    if(empty($_SESSION['username'])){
+                    if(!Session::get('username')){
                         ?>
                 <li class="header-signin">
                     <a href="#login-modal" id="" data-category="UserAccount" data-action="login" data-toggle="modal" >登录</a>
@@ -79,8 +74,8 @@ session_start();
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
-                                <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
+                                <a href="user/setprofile"><img class="l" alt="{{Session::get('name')}}" src="/images/unknow-160.png"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis">{{Session::get('name')}}</span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
@@ -128,6 +123,8 @@ session_start();
         </div>
     </div>
 </div>
+
+<!--登陆start-->
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
     <ul class="login-bind-tp">
@@ -139,12 +136,11 @@ session_start();
 
         <div class="form-arrow"></div>
         <input id="u_name" type="text" placeholder="手机号或邮箱：">
-        <font color="red"><span id="sp_name"></span></font>
 
         <input id="password" type="password" placeholder="密码：">
-        <font color="red"> <span id="sp_pwd"></span></font>
 
         <input type="button" name="type" class="button-blue login" value="登录" id="sub">
+		<font color="red"><center><span id="region"></span></center></font>
         <input type="hidden" name="return-url" value="">
         <div class="clearfix"></div>
         <label class="remember">
@@ -167,7 +163,9 @@ session_start();
         </ul>
     </form>
 </div>
+<!--登陆end-->
 
+<!--注册start-->
 <div class="modal in" id="signup-modal" > <a class="close" data-dismiss="modal">×</a>
     <h1>注册</h1>
     <ul class="login-bind-tp">
@@ -177,7 +175,7 @@ session_start();
     <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
         <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
-        <script>
+        <!--<script>
             function zhu(){
                 // alert(checkname());
                 //  if(flag&&emailflag&&phoneflag){
@@ -187,7 +185,7 @@ session_start();
                     return false;
                 }
             }
-        </script>
+        </script>-->
         <p class="error"></p>
         <input type="text" name="username" id="username" data-validate="email" autocomplete="off" class="ipt ipt-email" placeholder="请输入名称 " onblur="checkname();"><font color="red"><p class="tips" id="name_sp"></p></font>
         <input type="password" name="password"  class="ipt ipt-pwd js-pass-pwd" placeholder="6-16位密码，区分大小写，不能用空格" id="pwd"  style="background-image:url('');
@@ -214,6 +212,7 @@ session_start();
         </ul>
     </form>
 </div>
+<!--注册end-->
 
 <?php echo $__env->yieldSection(); ?>
 <SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>

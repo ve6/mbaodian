@@ -1,15 +1,15 @@
-@section('sidebar')
-<meta name="_token" content="{{ csrf_token() }}"/>
+<?php $__env->startSection('sidebar'); ?>
+<meta name="_token" content="<?php echo e(csrf_token()); ?>"/>
 <script src="/js/jquery.js" async="" charset="utf-8"></script>
-{{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/common.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/string.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/suggest.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/store.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/json.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/im.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/index.js" async="" charset="utf-8"></script>--}}
-{{--<script src="js/socket.js" async="" charset="utf-8"></script>--}}
+<?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/common.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/string.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/suggest.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/store.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/json.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/im.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/index.js" async="" charset="utf-8"></script>*/ ?>
+<?php /*<script src="js/socket.js" async="" charset="utf-8"></script>*/ ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <link rel="stylesheet" type="text/css" href="/static/css/ui2.css?2013032917">
 <div id="header">
@@ -30,11 +30,11 @@
         </div>
         <div id="login-area">
             <ul
-                    @if(Session::get("name"))
+                    <?php if(Session::get("name")): ?>
                         class="clearfix logined"
-                    @else
+                    <?php else: ?>
                         class="header-unlogin clearfix"
-                    @endif
+                    <?php endif; ?>
             >
 
                 <li class="header-app">
@@ -47,14 +47,14 @@
                         <img src="/images/erweima.png">
                     </div>
                 </li>
-                    @if(!Session::get("name"))
+                    <?php if(!Session::get("name")): ?>
                 <li class="header-signin">
                     <a href="#login-modal" id="" data-category="UserAccount" data-action="login" data-toggle="modal" >登录</a>
                 </li>
                 <li class="header-signup">
                     <a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal" >注册</a>
                 </li>
-                   @else
+                   <?php else: ?>
  
                 <li class="remind_warp">
                     <i class="msg_remind" style="display: none;"></i>
@@ -77,8 +77,8 @@
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="user/setprofile"><img class="l" alt="{{Session::get('name')}}" src="/images/unknow-160.png"></a>
-                                <a href="user/setprofile"><span class="name text-ellipsis">{{Session::get('name')}}</span></a>
+                                <a href="user/setprofile"><img class="l" alt="<?php echo e(Session::get('name')); ?>" src="/images/unknow-160.png"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis"><?php echo e(Session::get('name')); ?></span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
@@ -109,7 +109,7 @@
                         <i class="card-arr"></i>
                     </div>
                 </li>
-                  @endif
+                  <?php endif; ?>
             </ul>
         </div>
         <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
@@ -127,10 +127,10 @@
 <!--登陆start-->
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
-    {{--<ul class="login-bind-tp">
+    <?php /*<ul class="login-bind-tp">
         <li class="qweibo"> <a href=""><em>&nbsp;</em> QQ登录</a> </li>
         <li class="sina"> <a href=""><em>&nbsp;</em> 微博登录</a> </li>
-    </ul>--}}
+    </ul>*/ ?>
     还没有账号?<a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal">立即注册</a>
     <br>
     <form class="login-form clearfix" method="post" action="">
@@ -175,11 +175,11 @@
 <div class="modal in" id="signup-modal" > <a class="close" data-dismiss="modal">×</a>
     <h1>注册</h1>
     <ul class="login-bind-tp">
-        {{--<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
-        <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>--}}
+        <?php /*<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
+        <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
-        {{--<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">--}}
+        <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
         <!--<script>
             function zhu(){
                 // alert(checkname());
@@ -219,7 +219,7 @@
 </div>
 <!--注册end-->
 
-@show
+<?php echo $__env->yieldSection(); ?>
 <SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
 <script src="/js/index1.js"></script>
 <div class="footer bg-white idx-minwidth">

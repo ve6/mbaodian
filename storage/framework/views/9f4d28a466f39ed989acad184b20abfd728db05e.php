@@ -30,8 +30,8 @@ var is_choice = "";
 <link rel="stylesheet" href="/css/layer.css" type="text/css" />
 </head>
 <body >
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
 @parent
 <div id="main">
 
@@ -66,7 +66,7 @@ var is_choice = "";
   <div class="setting-right">
     <div class="setting-right-wrap wrap-boxes settings" >
         
-{{--个人资料start--}}
+<?php /*个人资料start*/ ?>
 <div id="setting-profile" class="setting-wrap setting-profile">
     <form id="profile" >
     
@@ -178,7 +178,7 @@ var is_choice = "";
     </form>
     
 </div>
-{{--个人资料end--}}
+<?php /*个人资料end*/ ?>
 
     </div>
   </div>
@@ -186,7 +186,7 @@ var is_choice = "";
 </div>
 
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 <div id="J_GotoTop" class="elevator">
     <a class="elevator-weixin" href="javascript:;">
         <div class="elevator-weixin-box">
@@ -215,3 +215,5 @@ var is_choice = "";
 </div>
 </body>
 </html>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

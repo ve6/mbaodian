@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="css/d79d81e9ab144c28aae8b073106e6881.css" type="text/css" />
 </head>
 <body  id="List_courseId">
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
     @parent
 <div id="main">
     <div class="container">
@@ -29,9 +29,9 @@
                 </div>
                 <div class="course-nav-row clearfix">
                     <?php
-                        //$vv=isset($_GET['v'])?$_GET['v']:0;
-                        //$a=isset($_GET['a'])?$_GET['a']:0;
-                        //$l=isset($_GET['l'])?$_GET['l']:0;
+                        $vv=isset($_GET['v'])?$_GET['v']:0;
+                        $a=isset($_GET['a'])?$_GET['a']:0;
+                        $l=isset($_GET['l'])?$_GET['l']:0;
                         $p=isset($_GET['page'])?$_GET['page']:1;
                         ?>
                     <span class="hd l">学院：</span>
@@ -204,5 +204,7 @@
 </div>
 
 </body>
-@endsection
+<?php $__env->stopSection(); ?>
 </html>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
