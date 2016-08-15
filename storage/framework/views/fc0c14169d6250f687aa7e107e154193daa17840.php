@@ -38,27 +38,27 @@ var is_choice = "";
 
     <link rel="stylesheet" href="css/a2.css" type="text/css">
     <script src="js/jquery_002.js" async="" charset="utf-8"></script>
-    {{--<script src="js/seajs-text.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/common.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/share.js"></script>--}}
-    {{--<script src="js/string.js" async="" charset="utf-8">--}}
-    {{--</script><script src="js/suggest.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/store.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/json.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="javascripts/im.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/view.js" async="" charset="utf-8"></script>--}}
-    {{--<link href="css/share_style0_16.css" rel="stylesheet">--}}
-    {{--<script src="js/course_common.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/course_collection.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/socket.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/jquery.js" async="" charset="utf-8"></script>--}}
-    {{--<script src="js/layer.js" async="" charset="utf-8"></script>--}}
+    <?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/common.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/share.js"></script>*/ ?>
+    <?php /*<script src="js/string.js" async="" charset="utf-8">*/ ?>
+    <?php /*</script><script src="js/suggest.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/store.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/json.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="javascripts/im.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/view.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<link href="css/share_style0_16.css" rel="stylesheet">*/ ?>
+    <?php /*<script src="js/course_common.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/course_collection.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/socket.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/jquery.js" async="" charset="utf-8"></script>*/ ?>
+    <?php /*<script src="js/layer.js" async="" charset="utf-8"></script>*/ ?>
     <link href="css/layer2.css" rel="stylesheet" charset="utf-8">
 </head>
 <body>
 
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
 @parent
 <?php
 $vv=isset($_GET['v'])?$_GET['v']:0;
@@ -169,7 +169,7 @@ $l=isset($_GET['l'])?$_GET['l']:0;
                               <li class="chapter clearfix ">
                   <i class="chapter-icon"></i>
                   <div class="chapter-bd l">
-                     {{-- <h5 class="name">第1章 Java初体验</h5>--}}
+                     <?php /* <h5 class="name">第1章 Java初体验</h5>*/ ?>
                       <p class="desc"><?php echo $arr['c_answer']?></p>
                   </div>
                 </li>
@@ -353,7 +353,7 @@ $l=isset($_GET['l'])?$_GET['l']:0;
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 <div id="J_GotoTop" class="elevator">
     <a class="elevator-weixin" href="javascript:;">
         <div class="elevator-weixin-box">
@@ -450,3 +450,5 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
         })
     })
 </script>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

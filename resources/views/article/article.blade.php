@@ -63,19 +63,19 @@
                 <input type="hidden" id="a_id" value="<?php echo $v['a_id']?>">
                 <div class="">
                     <h3 class="item-title">
-                        <a href="fangfa?id=<?php echo $v['a_id']?>" target="_blank" class="title-detail"><?php echo $v['a_title']?></a>
+                        <a href="fangfa?id=<?php echo $v['a_id']?>"  class="title-detail"><?php echo $v['a_title']?></a>
                     </h3>
                     <p class="item-bd"><?php echo mb_strlen($v['a_con'])>30?mb_substr($v['a_con'],0,30).'...':$v['a_con']?></p>
                     <div class="item-btm clearfix">
                         <ul class="l left-info">
                             <li class="hd-pic">
-                                <a class="publisher-hd" href="#" target="_blank">
-                                    <img src="" alt="" width="20" height="20" />
+                                <a class="publisher-hd" href="#" >
+                                    <img src="{{$v['a_logo']}}" alt="" width="20" height="20" />
                                 </a>
-                                <a class="publisher-name" href="#" target="_blank">用户</a>
+                                <a class="publisher-name" href="#" >用户</a>
                             </li>
                             <li class="now-tag">
-                                <a class="item-tag" href="#" target="_blank"><?php echo $v['at_type']?></a>
+                                <a class="item-tag" href="#" ><?php echo $v['at_type']?></a>
                             </li>
                             <li class="pass-time"><span><?php echo $v['a_addtime']?></span></li>
                             <li class="pass-time"><span><?php echo $v['a_num']?>浏览</span></li>
@@ -97,12 +97,25 @@
             </div>
             <?php
                 }
-                $article->render()
-
                 ?>
 
+
         </div>
+            <style>
+                /*.pager{*/
+                    /*position:absolute;*/
+                    /*left:400px;*/
+                    /*bottom:-500px;*/
+                /*}*/
+                .pager li{
+                    float:left;
+                    margin-left:100px;
+                    font-size:xx-large;
+                }
+            </style>
+            <?=$article->render()?>
         </div>
+
         <div class="article-right r">
             <!-- 写文章 -->
 
@@ -126,13 +139,13 @@
                             <div class="arti-info clearfix">
                                 <ul>
                                     <li class="hd-pic">
-                                        <a class="publisher-hd" href="#" target="_blank">
+                                        <a class="publisher-hd" href="#" >
                                             <img src="" alt="" width="20" height="20" />
                                         </a>
-                                        <a class="publisher-name" href="#" target="_blank">奋斗在路上</a>
+                                        <a class="publisher-name" href="#" >奋斗在路上</a>
                                     </li>
                                     <li class="now-tag">
-                                        <a class="item-tag" href="#" target="_blank">职场/生活</a>
+                                        <a class="item-tag" href="#" >职场/生活</a>
                                     </li>
                                     <li class="now-tag">
                                         <span class="viewed-num">20038浏览</span>
@@ -148,13 +161,13 @@
                             <div class="arti-info clearfix">
                                 <ul>
                                     <li class="hd-pic">
-                                        <a class="publisher-hd" href="#" target="_blank">
+                                        <a class="publisher-hd" href="#" >
                                             <img src="picture/545861d500015cc602200220-100-100.jpg" alt="" width="20" height="20" />
                                         </a>
-                                        <a class="publisher-name" href="#" target="_blank">i爱慕客</a>
+                                        <a class="publisher-name" href="#" >i爱慕客</a>
                                     </li>
                                     <li class="now-tag">
-                                        <a class="item-tag" href="#" target="_blank">后端开发</a>
+                                        <a class="item-tag" href="#" >后端开发</a>
                                     </li>
                                     <li class="now-tag">
                                         <span class="viewed-num">10288浏览</span>
@@ -171,57 +184,50 @@
                 <div class="article-weekly clearfix">
                     <ol class="weekly-top">
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/554ce69d0001044101000100-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                夜叉L</a>
+                            <a href="#"  class="hot-name">夜叉L</a>
 
                             <i class="rank-num weektop-first">1</i>
                         </li>
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/5572a2ef00017bfa01000100-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                哈哈哈_3</a>
+                            <a href="#"  class="hot-name">哈哈哈_3</a>
 
                             <i class="rank-num weektop-two">2</i>
                         </li>
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/5333a0d9000196ff02000200-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                果果爱吃苹果</a>
+                            <a href="#"  class="hot-name">果果爱吃苹果</a>
 
                             <i class="rank-num ">3</i>
                         </li>
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/56b0c3df0001fbd501000100-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                汪洋拾贝</a>
+                            <a href="#"  class="hot-name">汪洋拾贝</a>
 
                             <i class="rank-num ">4</i>
                         </li>
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/56dc2ac40001583301000100-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                围城之java</a>
+                            <a href="#"  class="hot-name">围城之java</a>
 
                             <i class="rank-num ">5</i>
                         </li>
                         <li>
-                            <a href="#" class="l hot-head" target="_blank" title="">
+                            <a href="#" class="l hot-head"  title="">
                                 <img src="picture/56eff52a0001d07401000100-100-100.jpg" alt="" width="40" height="40" />
                             </a>
-                            <a href="#" target="_blank" class="hot-name">
-                                缄默蜀黍ONE</a>
-
+                            <a href="#"  class="hot-name">缄默蜀黍ONE</a>
                             <i class="rank-num ">6</i>
                         </li>
                     </ol>
@@ -238,7 +244,7 @@
         <div class="elevator-weixin-box">
         </div>
     </a>
-    <a class="elevator-msg" href="#" target="_blank" id="feedBack"></a>
+    <a class="elevator-msg" href="#"  id="feedBack">-</a>
     <a class="elevator-app" href="#" >
         <div class="elevator-app-box">
         </div>

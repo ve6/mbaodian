@@ -95,9 +95,10 @@ class LoginController extends Controller
                 if(DB::table('users')->where('user_phone',"$phone")->first()){
                     echo "<script>alert('手机号已存在');location.href='index'</script>";
                 }else{
-                    $arr=DB::insert("insert into users(user_name,user_pwd,user_email,user_phone) values('$name','$pwd','$email','$phone');");
-                    if($arr){
+                    $id=DB::table('users')->insertGetId(['user_name'=>$name,'user_pwd'=>$pwd,'user_email'=>$email,'user_phone'=>$phone]);
+                    if($id){
                         $request->session()->set('username',$name);
+                        $request->session()->set('u_id',$id);
                         echo "<script>alert('注册成功');location.href='index'</script>";
                     }else{
                         echo "<script>alert('注册失败');</script>";
