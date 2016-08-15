@@ -166,25 +166,25 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
     var t_content=CKEDITOR.replace("t_content");
     
     $("#ques-submit-btn").click(function(){
+		
         var t_title=$("#t_title").val();
         var pro=$("#pro").val();
         if(pro==0){
-          alert('方向不能为空')
+          alert('请填写学院信息')
         }else{
-          aa = t_content.getData();
-        $.post('/tiwen',{
-            t_title:t_title,aa:aa,pro:pro},
+          aa = t_content.getData();		
+        $.post('/tiwen',{t_title:t_title,aa:aa,pro:pro},
             function(data){
-               if(data=='1'){
+				
+                if(data==1){
+					alert('提问成功！');
 
-                 location.href='/canon/public/wenda'
-               }else{
-
-               }
-            }
-
-     
-        ) }
+					location.href='/canon/public/wenda';
+                }else{
+				    alert('no');
+				}
+            }) 
+		}
     })
 </script>
 <?php $__env->stopSection(); ?>

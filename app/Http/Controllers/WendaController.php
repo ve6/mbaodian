@@ -2,61 +2,56 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
+use App\Question;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /* 答疑开发
  * @wei
  * 2016 8 15
  */
+ header("content-type:text/html;charset=utf-8");
 class WendaController extends Controller
 {
 	/*答疑首页*/
-    public function wenda(){
-        
-        $pro=DB::table('t_tw')
-        ->join('direction', function ($join) {
-            $join->on('direction.d_id', '=', 't_tw.d_id');
-        })
-        ->join('users', function ($join) {
-            $join->on('users.user_id', '=', 't_tw.user_id');
-        })
-        ->simplePaginate(5);
+    public function wenda()
+	{
+        $user = new Question();
+		$pro  = $user->question_sql();
         //print_r($pro);die;
         return view('wenda/wenda',['pro'=>$pro]);
     }
 
-
-    public function save(){
-        if(!isset($_SESSION)){
-            session_start();
-        }
-        header('Content-Type: text/html; charset=utf-8');
-        if(empty($_SESSION['username'])){
-            echo "<script>alert('请先登录'),location.href='index'</script>";die;
+	/*答疑提问页面*/
+    public function save(Request $request){
+		$name = $request->session()->get('name');
+       
+        if(empty($name)){
+            echo "<script>alert('请先登录'),location.href='index'</script>";exit;
         }else{
             $pro=DB::table('direction')->get();
         
-        //显示各个学院
-        return view('wenda/save',['pro'=>$pro]);
+			//显示各个学院
+			return view('wenda/save',['pro'=>$pro]);
         }
         
     }
-//提交提问功能
-    public function tiwen(){
-        $t_title=$_POST["t_title"];
-        $t_content=$_POST["aa"];
-        $pro=$_POST['pro'];
-        if(!isset($_SESSION)){
-            session_start();
-        }
-        $u_id=$_SESSION['u_id'];
-        //var_dump($t_content);die;
-        $arr1=DB::insert("INSERT INTO t_tw(t_title,t_content,user_id,d_id) values('$t_title','$t_content','$u_id','$pro')");
-         if($arr1){
-            exit('1');
-         }else{
-            exit('0');
-         } 
+	/*提交提问功能*/
+    public function tiwen(Request $request){
+		//接收post值
+        $t_title   = $request->input("t_title");
+        $t_content = $request->input("aa");
+        $pro       = $request->input("pro");
+		
+		
+        //获取用户id
+        $u_id = $request->session()->get('u_id');
+		//执行添加方法
+        $res = DB::insert('insert into t_tw (t_title, t_content, user_id, d_id) values (?, ?, ?, ?)', [$t_title, $t_content, $u_id, $pro]);
+		if($res){
+			echo 1;
+		}else{
+			echo 0;
+		} 
     }
     public function detail(Request $request){
         $id=$request->input("id");
@@ -97,36 +92,36 @@ class WendaController extends Controller
     }
 
 
-    // public function zid(){
-    //         session_start();
-    //         $zid=$_GET['name'];
-    //         $id=$_SESSION['user_id'];
-    //         $user = DB::table('dianzan')->where('user_id', $id)->first();
-    //         //print_r($user); 
-    //        if($user['z_id']!=$zid){
-    //             $sq="insert into dianzan(z_id,user_id) values('$zid','$id')";
-    //             $rr=DB::insert($sq);
-    //             if($rr){
-    //                 //$id=$_SESSION['user_id'];
-    //                 //$sql="select z_id from z_u where user_id='$id'";
-    //                 //$re=DB::select($sql);
-    //                 //if(empty($re)){
-    //                    // $sq="insert into z_u(z_id,user_id) vlues('$zid','$id')";
-    //                    // $rr=DB::select($sq);
-    //                     if($rr){
-    //                         echo '1';
-    //                     }
-    //             }
-    //         }
-    //             else{
-    //                 $sqp="delete from z_u where z_id='$zid' and user_id='$id'";
-    //                 $rq=DB::delete($sqp);
-    //                 if($rq){
-    //                     echo '3';
-    //                 }        
-    //             }
+/*     public function zid(){
+            session_start();
+            $zid=$_GET['name'];
+            $id=$_SESSION['user_id'];
+            $user = DB::table('dianzan')->where('user_id', $id)->first();
+            //print_r($user); 
+           if($user['z_id']!=$zid){
+                $sq="insert into dianzan(z_id,user_id) values('$zid','$id')";
+                $rr=DB::insert($sq);
+                if($rr){
+                    //$id=$_SESSION['user_id'];
+                    //$sql="select z_id from z_u where user_id='$id'";
+                    //$re=DB::select($sql);
+                    //if(empty($re)){
+                       // $sq="insert into z_u(z_id,user_id) vlues('$zid','$id')";
+                       // $rr=DB::select($sq);
+                        if($rr){
+                            echo '1';
+                        }
+                }
+            }
+                else{
+                    $sqp="delete from z_u where z_id='$zid' and user_id='$id'";
+                    $rq=DB::delete($sqp);
+                    if($rq){
+                        echo '3';
+                    }        
+                }
                
-    //     }
+        } */
 
     
 }

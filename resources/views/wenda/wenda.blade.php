@@ -106,7 +106,7 @@ var is_choice = "0";
 
 
 
-            <em class='bb' >赞同</em>
+            <em class='bb'>赞同</em>
 
 
 
