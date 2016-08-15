@@ -109,7 +109,6 @@ data-id="134">阿里巴巴</a>
 <?php endforeach; ?>
 </ul>
 </div>
-<?php echo $exam->appends(['id'=>$id])->links(); ?>
 
 <div class="pagination">
      <style>
@@ -120,6 +119,8 @@ data-id="134">阿里巴巴</a>
 	</style>
 </div>
 </div>
+<?php echo $exam->appends(['id'=>$id])->links(); ?>
+
 </div>
 </div>
 

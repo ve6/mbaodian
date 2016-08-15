@@ -25,9 +25,12 @@ class CompanyController extends Controller
 			$user = new MyModel();
 			$exam = $user->sql_course(1);
 			return view('company/index',['arr'=>$arr,'re'=>$ra,'exam'=>$exam]);
+		}else{
+			$user = new MyModel();
+			$exam = $user->sql_course($type);
+			//print_r($arr);
+			return view('company/index',['arr'=>$arr,'re'=>$ra,'exam'=>$exam]);	
 		}	
-		$exam = DB::table('shiti')->simplePaginate(8);
-		return view('company/index',['arr'=>$arr,'re'=>$ra,'exam'=>$exam]);
 	}
 	
 	
