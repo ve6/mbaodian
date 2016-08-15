@@ -3,10 +3,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Pagination\LengthAwarePaginator;
+
+/* 答疑开发
+ * @wei
+ * 2016 8 15
+ */
 class WendaController extends Controller
 {
+	/*答疑首页*/
     public function wenda(){
-        //echo "123";die;
+        
         $pro=DB::table('t_tw')
         ->join('direction', function ($join) {
             $join->on('direction.d_id', '=', 't_tw.d_id');

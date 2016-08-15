@@ -26,8 +26,8 @@
 	}
 
 </style>
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
     @parent
 
 <body style="background:#fff;">
@@ -48,9 +48,9 @@
 <div class="tcm-sub-mod">
 <h4 class="tcm-hd">职业方向</h4>
 <div class="tcm-bd">
-@foreach($re as $key=>$value)
-<a class="zzz" data-id="{{$value['d_name']}}" href="/{{$value['d_href']}}">{{$value['d_name']}}</a>
-@endforeach
+<?php foreach($re as $key=>$value): ?>
+<a class="zzz" data-id="<?php echo e($value['d_name']); ?>" href="/<?php echo e($value['d_href']); ?>"><?php echo e($value['d_name']); ?></a>
+<?php endforeach; ?>
 </div>
 </div>
 </div>
@@ -70,10 +70,10 @@ data-id="134">阿里巴巴</a>
 <div class="tcm-sub-mod">
 <h4 class="tcm-hd">公司</h4>
 <div class="tcm-bd">
-@foreach($arr as $key=>$value)
-<a class="xxx" data-id="{{$value['company_name']}}" href="#">{{$value['company_name']}}</a>
+<?php foreach($arr as $key=>$value): ?>
+<a class="xxx" data-id="<?php echo e($value['company_name']); ?>" href="#"><?php echo e($value['company_name']); ?></a>
 
-@endforeach
+<?php endforeach; ?>
 </div>
 </div>
 </div>
@@ -94,15 +94,15 @@ data-id="134">阿里巴巴</a>
 </div>
 <div class="module-body" id="exam">
 <ul class="content-item-box clearfix">
-@foreach($exam as $key=>$value)
+<?php foreach($exam as $key=>$value): ?>
 <li>
-<a href="/college_exam?id={{$value['s_id']}}&page=1">
+<a href="/college_exam?id=<?php echo e($value['s_id']); ?>&page=1">
 <div class="content-item-brief">
-<h1>{{$value['s_logo']}}</h1>
+<h1><?php echo e($value['s_logo']); ?></h1>
 <div class="web-logoimg">
-<img src="/{{$value['s_img']}}" style="width:100px; height:100px;" />
+<img src="/<?php echo e($value['s_img']); ?>" style="width:100px; height:100px;" />
 </div>
-<div class="exam-foot">已有{{$value['click']}}人参加</div>
+<div class="exam-foot">已有<?php echo e($value['click']); ?>人参加</div>
 <dl class="exam-info">
 <dd><span class="link-green"></span></dd>
 <dd class="exam-btn"><span class="btn  btn-block btn-primary" >查看详情</span></dd>
@@ -110,10 +110,11 @@ data-id="134">阿里巴巴</a>
 </div>                                               
 </a> 
 </li>
-@endforeach
+<?php endforeach; ?>
 </ul>
 </div>
-{!! $exam->links() !!}
+<?php echo $exam->links(); ?>
+
 <div class="pagination">
      <style>
 		.pager li{
@@ -185,5 +186,7 @@ mutiTagIds: ''
 seajs.use('nowcoder/1.2.456/javascripts/site/contest/paperList');
 </script>
 </body>
-@endsection
+<?php $__env->stopSection(); ?>
 </html>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
