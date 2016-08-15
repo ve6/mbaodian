@@ -1,9 +1,4 @@
 <?php $__env->startSection('sidebar'); ?>
-<?php 
-if(!isset($_SESSION)){
-session_start(); 
-}
-?>
 <meta name="_token" content="<?php echo e(csrf_token()); ?>"/>
 <script src="/js/jquery.js" async="" charset="utf-8"></script>
 <?php /*<script src="js/seajs-text.js" async="" charset="utf-8"></script>*/ ?>
@@ -34,7 +29,14 @@ session_start();
                             </ul>
         </div>
         <div id="login-area">
-            <ul    <?php if(empty($_SESSION['username'])){ ?> class="header-unlogin clearfix" <?php }else{ ?> class="clearfix logined" <?php }?>>
+            <ul
+                    <?php if(Session::get("name")): ?>
+                        class="clearfix logined"
+                    <?php else: ?>
+                        class="header-unlogin clearfix"
+                    <?php endif; ?>
+            >
+
                 <li class="header-app">
                     <a href="/mobile/app">
                         <span class="icon-appdownload"></span>
@@ -45,19 +47,14 @@ session_start();
                         <img src="/images/erweima.png">
                     </div>
                 </li>
-                
-		<?php
-                    if(empty($_SESSION['username'])){
-                        ?>
+                    <?php if(!Session::get("name")): ?>
                 <li class="header-signin">
                     <a href="#login-modal" id="" data-category="UserAccount" data-action="login" data-toggle="modal" >登录</a>
                 </li>
                 <li class="header-signup">
                     <a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal" >注册</a>
                 </li>
-                    <?php
-                    }else{
-                        ?>
+                   <?php else: ?>
  
                 <li class="remind_warp">
                     <i class="msg_remind" style="display: none;"></i>
@@ -71,20 +68,21 @@ session_start();
                     </a>
                 </li>
                 <li class="set_btn user-card-box">
-                    <a target="_self" href="/u/3071208/courses" action-type="my_menu" class="user-card-item" id="header-avator">
-                        <img width="40" height="40" src="/images/unknow-40.png">
+                    <a target="_self" href="/user/setprofile" action-type="my_menu" class="user-card-item" id="header-avator">
+                        <img width="50" height="50" src="/images/unknow-40.png">
                         <i style="display: none;" class="myspace_remind"></i>
                         <span style="display: none;">动态提醒</span>
                     </a>
+                    <!--用户登录显示的用户信息-->
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="/u/3071208/courses"><img class="l" alt="凤颖" src="/images/unknow-160.png"></a>
-                                <a href="/u/3071208/courses"><span class="name text-ellipsis">凤颖</span></a>
+                                <a href="user/setprofile"><img class="l" alt="<?php echo e(Session::get('name')); ?>" src="/images/unknow-160.png"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis"><?php echo e(Session::get('name')); ?></span></a>
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
 					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
-                    
+
                                 <a class="icon-set setup" href="/user/setprofile"></a>
                             </div>
                             <!--
@@ -111,10 +109,7 @@ session_start();
                         <i class="card-arr"></i>
                     </div>
                 </li>
- 
-                    <?php
-                    }
-                ?>
+                  <?php endif; ?>
             </ul>
         </div>
         <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
@@ -128,23 +123,30 @@ session_start();
         </div>
     </div>
 </div>
+
+<!--登陆start-->
 <div class="modal in" id="login-modal"> <a class="close" data-dismiss="modal">×</a>
     <h1>登录</h1>
-    <ul class="login-bind-tp">
-        <?php /*<li class="qweibo"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> QQ登录</a> </li>
-        <li class="sina"> <a href="http://sc.chinaz.com"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
-    </ul>
-    <a href=""> <p>还没有账号,立即注册</p></a><br>
+    <?php /*<ul class="login-bind-tp">
+        <li class="qweibo"> <a href=""><em>&nbsp;</em> QQ登录</a> </li>
+        <li class="sina"> <a href=""><em>&nbsp;</em> 微博登录</a> </li>
+    </ul>*/ ?>
+    还没有账号?<a href="#signup-modal" id="js-signup-btn" data-category="UserAccount" data-action="login" data-toggle="modal">立即注册</a>
+    <br>
     <form class="login-form clearfix" method="post" action="">
 
         <div class="form-arrow"></div>
         <input id="u_name" type="text" placeholder="手机号或邮箱：">
-        <font color="red"><span id="sp_name"></span></font>
 
         <input id="password" type="password" placeholder="密码：">
-        <font color="red"> <span id="sp_pwd"></span></font>
+
+        <!--第三方登录start-->
+        <script type="text/javascript" src="http://open.51094.com/user/myscript/157aec390af50a.html"></script>
+        <span id="hzy_fast_login"></span>
+        <!--第三方登录end-->
 
         <input type="button" name="type" class="button-blue login" value="登录" id="sub">
+		<font color="red"><center><span id="region"></span></center></font>
         <input type="hidden" name="return-url" value="">
         <div class="clearfix"></div>
         <label class="remember">
@@ -167,17 +169,18 @@ session_start();
         </ul>
     </form>
 </div>
+<!--登陆end-->
 
+<!--注册start-->
 <div class="modal in" id="signup-modal" > <a class="close" data-dismiss="modal">×</a>
     <h1>注册</h1>
     <ul class="login-bind-tp">
         <?php /*<li class="qweibo"> <a href="#"><em>&nbsp;</em> QQ登录</a> </li>
         <li class="sina"> <a href="#"><em>&nbsp;</em> 微博登录</a> </li>*/ ?>
     </ul>
-    <p><a href="/index">已有账号,直接登录</p></a><br/>
     <form class="signup-form clearfix" method="post" action="reg" onsubmit="return zhu()">
         <?php /*<form class="valid-form" id="js-signup-form" autocomplete="off" action='reg' method='post' onsubmit="return sub()">*/ ?>
-        <script>
+        <!--<script>
             function zhu(){
                 // alert(checkname());
                 //  if(flag&&emailflag&&phoneflag){
@@ -187,11 +190,11 @@ session_start();
                     return false;
                 }
             }
-        </script>
+        </script>-->
         <p class="error"></p>
         <input type="text" name="username" id="username" data-validate="email" autocomplete="off" class="ipt ipt-email" placeholder="请输入名称 " onblur="checkname();"><font color="red"><p class="tips" id="name_sp"></p></font>
         <input type="password" name="password"  class="ipt ipt-pwd js-pass-pwd" placeholder="6-16位密码，区分大小写，不能用空格" id="pwd"  style="background-image:url('');
-   background-position:right bottom"><p class="tips" id="sp_pwd"><font color="red"></font></p>
+   background-position:right bottom"><font color="red"><p class="tips" id="sp_pwds"></p></font>
 
         <input type="text" name="email" data-validate="nick" class="ipt ipt-nick" placeholder="邮箱格式:@ . com" id="email" onblur="checkemail();"><font color="red"><p class="tips" id="email_sp"></p></font>
         <input type="text" name="phone" data-validate="nick" class="ipt ipt-nick" placeholder="手机号为11位 " id="phone" onblur="checkphone();"><font color="red"><p class="tips" id="phone_sp"></p></font>
@@ -214,6 +217,7 @@ session_start();
         </ul>
     </form>
 </div>
+<!--注册end-->
 
 <?php echo $__env->yieldSection(); ?>
 <SCRIPT src="/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>

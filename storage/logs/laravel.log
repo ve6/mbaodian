@@ -12950,3 +12950,9 @@ Stack trace:
 >>>>>>> e1ac55da88429e9e8370ca46ce37e549b48c8d32
 #54 {main}  
 >>>>>>> 9ddbd17434ecf45c4e2ad36f6f43741feff947a8
+[2016-08-15 03:20:38] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '<<' (T_SL)' in E:\weiwenqiang\11.laravel\mbaodian\app\Http\Controllers\CompanyController.php:23
+Stack trace:
+#0 {main}  
+[2016-08-15 03:24:35] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '>>' (T_SR)' in E:\weiwenqiang\11.laravel\mbaodian\app\Http\Controllers\CompanyController.php:44
+Stack trace:
+#0 {main}  
