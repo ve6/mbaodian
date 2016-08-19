@@ -16,11 +16,11 @@
 
 <script src="/js/push.js"></script><script src="/js/rt.js" async="" type="text/javascript"></script><script type="text/javascript">
 
-      var OP_CONFIG={"module":"wenda","page":"detail","userInfo":{"uid":"3116310","nickname":"core3116310","head":"http:\/\/img.mukewang.com\/user\/56f9d3ae0001e1c701000100-80-80.jpg","usertype":"1","roleid":0}};
+   /*    var OP_CONFIG={"module":"wenda","page":"detail","userInfo":{"uid":"3116310","nickname":"core3116310","head":"http:\/\/img.mukewang.com\/user\/56f9d3ae0001e1c701000100-80-80.jpg","usertype":"1","roleid":0}};
   var isLogin = 1;
 var is_choice = "";
   var seajsTimestamp="";
-    var ownName=""
+    var ownName="" */
   
 </script>
 
@@ -28,7 +28,7 @@ var is_choice = "";
 
 
 <link rel="stylesheet" href="/css/ahxx.css" type="text/css">
-<script src="/js/jquery_002.js" async="" charset="utf-8"></script><script src="/js/seajs-text.js" async="" charset="utf-8"></script><script src="i/js/common.js" async="" charset="utf-8"></script><script src="/js/string.js" async="" charset="utf-8"></script><script src="/js/suggest.js" async="" charset="utf-8"></script><script src="/js/store.js" async="" charset="utf-8"></script><script src="/js/json.js" async="" charset="utf-8"></script><script src="/js/im.js" async="" charset="utf-8"></script><script src="/js/detail.js" async="" charset="utf-8"></script><script src="/js/socket.js" async="" charset="utf-8"></script><script src="/js/ueditor_002.js" async="" charset="utf-8"></script><script src="/js/index.js" async="" charset="utf-8"></script><script src="/js/layer.js" async="" charset="utf-8"></script><link href="/css/layer_002hxx.css" rel="stylesheet" charset="utf-8"><script src="/js/detail-common.js" async="" charset="utf-8"></script><script src="/js/wendalist.js" async="" charset="utf-8"></script><script src="/js/wendaGuide.js" async="" charset="utf-8"></script><script src="/js/jquery.js" async="" charset="utf-8"></script><script src="/js/modal.js" async="" charset="utf-8"></script><script src="/js/verify-code.js" async="" charset="utf-8"></script><script src="/js/share.js"></script><link rel="stylesheet" type="text/css" href="/css/ueditorhxx.css"><link href="/css/share_style0_16hxx.css" rel="stylesheet"><script defer="defer" type="text/javascript" src="/js/ZeroClipboard.js"></script></head>
+<script src="/js/jquery_002.js" async="" charset="utf-8"></script><script src="/js/seajs-text.js" async="" charset="utf-8"></script><script src="/js/common.js" async="" charset="utf-8"></script><script src="/js/string.js" async="" charset="utf-8"></script><script src="/js/suggest.js" async="" charset="utf-8"></script><script src="/js/store.js" async="" charset="utf-8"></script><script src="/js/json.js" async="" charset="utf-8"></script><script src="/js/im.js" async="" charset="utf-8"></script><script src="/js/detail.js" async="" charset="utf-8"></script><script src="/js/socket.js" async="" charset="utf-8"></script><script src="/js/ueditor_002.js" async="" charset="utf-8"></script><script src="/js/index.js" async="" charset="utf-8"></script><script src="/js/layer.js" async="" charset="utf-8"></script><link href="/css/layer_002hxx.css" rel="stylesheet" charset="utf-8"><script src="/js/detail-common.js" async="" charset="utf-8"></script><script src="/js/wendalist.js" async="" charset="utf-8"></script><script src="/js/wendaGuide.js" async="" charset="utf-8"></script><script src="/js/jquery.js" async="" charset="utf-8"></script><script src="/js/modal.js" async="" charset="utf-8"></script><script src="/js/verify-code.js" async="" charset="utf-8"></script><script src="/js/share.js"></script><link rel="stylesheet" type="text/css" href="/css/ueditorhxx.css"><link href="/css/share_style0_16hxx.css" rel="stylesheet"><script defer="defer" type="text/javascript" src="/js/ZeroClipboard.js"></script></head>
 <body style="background:#fff;">
 
 
@@ -53,16 +53,16 @@ window._bd_share_config = {
                 <div class="qa-content-inner ">
                     <div id="js-content-main">
                         <div class="detail-q-title clearfix">
-                            <h1 class="js-qa-wenda-title detail-wenda-title l"><?php echo $arr['0']['t_title'];?></h1>
+                            <h1 class="js-qa-wenda-title detail-wenda-title l"><?php echo $arr['t_title'];?></h1>
                             <!-- 编辑 -->
 
                                                     </div>
                         
                         <div id="js-qa-wenda" class="detail-wenda imgPreview rich-text">
                             
-                            <span><?php echo $arr['0']['t_content']?></span>
+                            <span><?php echo $arr['t_content']?></span>
                         </div>
-                        <input type="hidden" id="tid" value="<?php echo $arr['0']['t_id']?>">
+                        <input type="hidden" id="tid" value="<?php echo $arr['t_id']?>">
                     </div>
 
                                         <div class="qa-header detail-user-tips">
@@ -115,7 +115,7 @@ window._bd_share_config = {
                 </div>
                 
                 <div id="avator-wrap" class="detail-ci-avator answer-hidden">
-                                        <img src="/detail_files/56f9d3ae0001e1c701000100-80-80.jpg" alt="">
+                                        <img src="/images/detail_files/56f9d3ae0001e1c701000100-80-80.jpg" alt="">
                     <div class="detail-r">
                         <span class="detail-name">core3116310</span>
                         <p class="detail-signal"></p>
@@ -146,7 +146,7 @@ window._bd_share_config = {
                     <div class="answer-con first" id="id_156829">
                         <div class="user-pic l">
                             <a href="http://www.imooc.com/u/1044131/bbs" target="_blank">
-                                <img src="/detail_files/567b7d9a0001eadd01000100-100-100.jpg" alt="?" width="40" height="40">
+                                <img src="/images/detail_files/567b7d9a0001eadd01000100-100-100.jpg" alt="?" width="40" height="40">
                             </a>
                         </div><!--.user end-->
                         <div class="detail-r">
@@ -171,8 +171,8 @@ window._bd_share_config = {
                                 <span class="agree-with " data-ques-id="313011" data-answer-id="156829" data-hasop="">
 
 
-
-                                <b>赞同</b>
+								<input type='hidden' value='<?php echo $val['com_id'] ?>' class='com_id'/>
+                                <b class='agree'>赞同{!!$count!!}</b>
                                 
 
 
@@ -197,7 +197,7 @@ window._bd_share_config = {
                         <div class="release-reply-con clearfix">
                                                                     <div class="user-pic">
                                         <a href="http://www.imooc.com/u/3116310/bbs" target="_blank">
-                                            <img src="/detail_files/56f9d3ae0001e1c701000100-100-100.jpg" alt="?" width="40" height="40">
+                                            <img src="/images/detail_files/56f9d3ae0001e1c701000100-100-100.jpg" alt="?" width="40" height="40">
                                         </a>
                                     </div>
                                                                 <!--.user-pic end-->
@@ -214,15 +214,14 @@ window._bd_share_config = {
                             </div>
                         </div><!--.release-reply-con end-->
                     </div><!--.reply-con end-->
+					
                     
                 </div>
+				
             </div>
             <!-- 回答回复 end --><?php } ?>
-
-
-
-        
-
+			
+			{!! $arr_com->appends(['id'=>$arr['t_id']])->links() !!}
 
 
             <div class="qa-comment-page">
@@ -242,7 +241,7 @@ window._bd_share_config = {
                         <!-- 广告 -->
                                             <div class="advertisement">
                     <a href="http://www.imooc.com/wenda/detail/305892" data-ast="yuanwendetailright_1_192" target="_blank">
-                        <img src="/detail_files/5694738900010baf02800100.jpg" title="2015年度&lt;问答牛人团&gt;榜单">
+                        <img src="/images/detail_files/5694738900010baf02800100.jpg" title="2015年度&lt;问答牛人团&gt;榜单">
                     </a>
                 </div><!--.advertisement end-->
                                                                         <div class="recommend-class">
@@ -254,7 +253,7 @@ window._bd_share_config = {
                             <div class="class-info">
                                 <div class="class-icon">
                                     <a href="http://www.imooc.com/wenda/17" target="_blank">
-                                        <img src="/detail_files/563aff440001e80700900090.jpg" alt="JavaScript">
+                                        <img src="/images/detail_files/563aff440001e80700900090.jpg" alt="JavaScript">
                                     </a>
                                 </div><!--.class-icon end-->
                                 <h4>
@@ -284,7 +283,7 @@ window._bd_share_config = {
     <div class="js-qa-reply-ibox qa-reply-ibox clearfix">
         <div class="qa-reply-iavator l">
                         <a href="http://www.imooc.com/myclub/otherquestion?uid=3116310" title="core3116310">
-                <img src="/detail_files/56f9d3ae0001e1c701000100-40-40.jpg" width="40" height="40">
+                <img src="/images/detail_files/56f9d3ae0001e1c701000100-40-40.jpg" width="40" height="40">
             </a>
                     </div>
         <div class="qa-reply-iwrap">
@@ -333,7 +332,7 @@ window._bd_share_config = {
 <script src="/js/ssologin.js"></script>
 <script type="text/javascript" src="/js/sea.js"></script>
 <script type="text/javascript" src="/js/sea_config.js"></script>
-<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+<script type="text/javascript">//seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
 
 
 
@@ -341,43 +340,75 @@ window._bd_share_config = {
 
 <div style="display: none">
 <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+/* var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
 (function (d) {
 window.bd_cpro_rtid="rHT4P1c";
 var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
 var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
-})(document);
-</script><script src="/js/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img src="/detail_files/21.gif" border="0" width="20" height="20"></a>
+})(document); */
+</script><script src="/js/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img src="/images/detail_files/21.gif" border="0" width="20" height="20"></a>
 <script>
-(function(){
+/* (function(){
     var bp = document.createElement('script');
     bp.src = '//push.zhanzhang.baidu.com/push.js';
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
-})();
+})(); */
 </script>
-</div><script src="/detail_files/user.htm" type="text/javascript"></script><script src="/detail_files/iplookup.php" type="text/javascript"></script>
+</div><script src="/images/detail_files/user.htm" type="text/javascript"></script><script src="/images/detail_files/iplookup.php" type="text/javascript"></script>
 
 
-<div class="edui-imooc" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px;" id="edui_fixedlayer"><div style="display: none;" id="edui41" class="edui-popup  edui-bubble edui-imooc" onmousedown="return false;"> <div id="edui41_body" class="edui-popup-body edui-imooc"> <iframe class="edui-imooc" style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" src="/detail_files/a_002.htm" width="100%" frameborder="0" height="100%"></iframe> <div class="edui-shadow edui-imooc"></div> <div id="edui41_content" class="edui-popup-content edui-imooc">  </div> </div></div></div><div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="/detail_files/ZeroClipboard.swf" width="100%" height="100%"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=www.imooc.com%2C%2F%2Fwww.imooc.com%2Chttp%3A%2F%2Fwww.imooc.com"></object></div></body></html>
+<div class="edui-imooc" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px;" id="edui_fixedlayer"><div style="display: none;" id="edui41" class="edui-popup  edui-bubble edui-imooc" onmousedown="return false;"> <div id="edui41_body" class="edui-popup-body edui-imooc"> <iframe class="edui-imooc" style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" src="/images/detail_files/a_002.htm" width="100%" frameborder="0" height="100%"></iframe> <div class="edui-shadow edui-imooc"></div> <div id="edui41_content" class="edui-popup-content edui-imooc">  </div> </div></div></div><div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="/images/detail_files/ZeroClipboard.swf" width="100%" height="100%"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=www.imooc.com%2C%2F%2Fwww.imooc.com%2Chttp%3A%2F%2Fwww.imooc.com"></object></div></body></html>
 
 
 <script>
     var d_content=CKEDITOR.replace("d_content");
+	//问题id
     var tid=$("#tid").val();
-    //alert(tid)
+
     $("#ques-submit-btn").click(function(){
      aa = d_content.getData();
-     //alert(aa)
+	 if(aa==''){
+		 alert('回答内容不能为空值')
+		 return false;
+		
+	 }
         $.post('/hui',{
             aa:aa,tid:tid},
             function(data){
-              // alert(data)
-             $("#aa").html(data)
-            }
-        )
+				if(data==0){
+					alert('请先登录');
+					location.href='index'
+				}else if(data==1){
+					
+					window.location.reload()
+				//$("#aa").html(data);
+				}
+				
+				
+              
+            })
     })
+	 $('.agree').click(function(){
+		 //得到回答的id值
+		var com_id = $(this).prev().val();
+		//alert(com_id);
+		//ajax传值
+		$.ajax({
+		   type: "POST",
+		   url: "/answer_zan",
+		   data: "com_id="+com_id,
+		   success: function(msg){
+			  // alert(msg)
+			  if(msg=='ok'){
+				 alert('点赞成功');
+			 }else{
+				 alert('不能重复点赞');
+			 } 
+		   }
+		});
+	}) 
 </script>
 
 @endsection

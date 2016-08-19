@@ -519,7 +519,7 @@ a:active {
   border: 2px solid #adb0b1;
   vertical-align: middle;
   display: inline-block;
-  background: url(/static/img/menu_icon.png) no-repeat 0 0;
+  background: url(/images/menu_icon.png) no-repeat 0 0;
 }
 #nav_list {
   display: none;
@@ -602,7 +602,7 @@ a:active {
 .footer_logo {
   display: none;
   float: left;
-  background: url(/static/img/common/footer-sprite.png) 0 -230px no-repeat;
+  background: url(/images/footer-sprite.png) 0 -230px no-repeat;
   height: 40px;
   width: 120px;
   margin: 0 20px;
@@ -619,7 +619,7 @@ a:active {
   position: relative;
   width: 32px;
   height: 32px;
-  background-image: url(/static/img/common/footer-sprite.png);
+  background-image: url(/images/footer-sprite.png);
   background-repeat: no-repeat;
   margin: 3px 6px 0;
   opacity: 0.5;
@@ -639,7 +639,7 @@ a:active {
   height: 220px;
   left: -69px;
   bottom: 35px;
-  background: url(/static/img/common/footer-sprite.png?1) no-repeat 0 0;
+  background: url(/images/footer-sprite.png?1) no-repeat 0 0;
 }
 .followus .followus-weixin {
   background-position: 0 -279px;
@@ -1549,7 +1549,7 @@ fieldset[disabled] .btn {
 .g-user-card .card-top {
   padding-left: 100px;
   height: 100px;
-  background: #f34131 url(/static/img/common/user_card_top.png) no-repeat center 0;
+  background: #f34131 url(/images/user_card_top.png) no-repeat center 0;
   color: #fff;
   position: relative;
 }

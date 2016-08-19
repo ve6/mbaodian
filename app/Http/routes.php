@@ -56,7 +56,7 @@ Route::get('detail', 'WendaController@detail');
 //评论
 Route::post('hui', 'WendaController@hui');
 //点赞
-Route::get('zid', 'WendaController@zid');
+Route::any('answer_zan', 'WendaController@answer_zan');
 /*
  * 猿问结束
  */

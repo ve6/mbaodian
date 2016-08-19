@@ -247,7 +247,7 @@
             <div class="footer_intro l">
                 <div class="footer_link">
                     <ul>
-                        <li><a href="#" target="_blank">网站首页</a></li>
+                        <li><a href="/" target="_blank">网站首页</a></li>
                         <li><a href="#" target="_blank">人才招聘</a></li>
                         <li> <a href="#" target="_blank">联系我们</a></li>
                         <li><a href="#" target="_blank">面试宝典</a></li>

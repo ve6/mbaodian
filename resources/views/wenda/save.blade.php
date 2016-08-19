@@ -175,14 +175,13 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
           aa = t_content.getData();		
         $.post('/tiwen',{t_title:t_title,aa:aa,pro:pro},
             function(data){
-				
-                if(data==1){
+                 if(data==1){
 					alert('提问成功！');
 
 					location.href='/wenda';
                 }else{
 				    alert('no');
-				}
+				} 
             }) 
 		}
     })
