@@ -73,7 +73,7 @@ var is_choice = "";
         <div class="wlfg-wrap clearfix">
             <label class="label-name" for="nick" >昵称</label>
             <div class="rlf-group">
-                <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="nick"  class="input rlf-input rlf-input-nick" value="凤颖" placeholder="请输入昵称."/>
+                <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="nick"  class="input rlf-input rlf-input-nick" value="<?php echo e($user['user_name']); ?>" placeholder="请输入昵称."/>
                 <p class="rlf-tip-wrap"></p>
             </div>
         </div>
@@ -82,20 +82,15 @@ var is_choice = "";
             <label class="label-name" for="job">职位</label>
             <div class="rlf-group">
                 <select class="input rlf-select" name="job" hidefocus="true" id="job">
-                    <option value="">请选择职位</option>
-                                            <option value="1" >页面重构设计</option>
-                                            <option value="6" >Web前端工程师</option>
-                                            <option value="5" >JS工程师</option>
-                                            <option value="8" >PHP开发工程师</option>
-                                            <option value="11" >JAVA开发工程师</option>
-                                            <option value="7" >移动开发工程师</option>
-                                            <option value="9" >软件测试工程师</option>
-                                            <option value="10" >Linux系统工程师</option>
-                                            <option value="2" >交互设计师</option>
-                                            <option value="3" >产品经理</option>
-                                            <option value="4" >UI设计师</option>
-                                            <option value="13" >学生</option>
-                                    </select>
+                    <option value="0">请选择职位</option>
+                    <?php foreach($work as $val): ?>
+                        <?php if($user['z_id']==$val['z_id']): ?>
+                            <option value="<?php echo e($val['z_id']); ?>" selected="selected"><?php echo e($val['z_name']); ?></option>
+                        <?php else: ?>
+                            <option value="<?php echo e($val['z_id']); ?>"><?php echo e($val['z_name']); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </select>
                 <p class="rlf-tip-wrap"></p>
             </div>
         </div>
@@ -103,50 +98,21 @@ var is_choice = "";
         <div class="wlfg-wrap clearfix">
             <label class="label-name" for="province-select">城市</label>
             <div class="rlf-group profile-address">
-                <select id="province-select" class='input' hidefocus="true">
-                    <option value="0">选择省份</option>
-                                            <option value="1">北京</option>
-                                            <option value="2">天津</option>
-                                            <option value="3">河北</option>
-                                            <option value="4">山西</option>
-                                            <option value="5">内蒙古</option>
-                                            <option value="6">辽宁</option>
-                                            <option value="7">吉林</option>
-                                            <option value="8">黑龙江</option>
-                                            <option value="9">上海</option>
-                                            <option value="10">江苏</option>
-                                            <option value="11">浙江</option>
-                                            <option value="12">安徽</option>
-                                            <option value="13">福建</option>
-                                            <option value="14">江西</option>
-                                            <option value="15">山东</option>
-                                            <option value="16">河南</option>
-                                            <option value="17">湖北</option>
-                                            <option value="18">湖南</option>
-                                            <option value="19">广东</option>
-                                            <option value="20">海南</option>
-                                            <option value="21">广西</option>
-                                            <option value="22">甘肃</option>
-                                            <option value="23">陕西</option>
-                                            <option value="24">新疆</option>
-                                            <option value="25">青海</option>
-                                            <option value="26">宁夏</option>
-                                            <option value="27">重庆</option>
-                                            <option value="28">四川</option>
-                                            <option value="29">贵州</option>
-                                            <option value="30">云南</option>
-                                            <option value="31">西藏</option>
-                                            <option value="32">台湾</option>
-                                            <option value="33">澳门</option>
-                                            <option value="34">香港</option>
-                                            <option value="100">其他</option>
-                                    </select>
+                <select class='input' id="province-select"  hidefocus="true">
+                    <option value="">选择省份</option>
+                    <?php foreach($province as $val): ?>
+                        <option value="<?php echo e($val['region_id']); ?>"><?php echo e($val['region_name']); ?></option>
+                    <?php endforeach; ?>
+                </select>
+
                 <select class='input' id="city-select" hidefocus="true">
                     <option value="0">选择城市</option>
-                                    </select>
+                </select>
+
                 <select class='input mr0' id="area-select" hidefocus="true">
                     <option value="0">选择区县</option>
-                                    </select>
+                </select>
+
                 <p class="rlf-tip-wrap"></p>
             </div>
         </div>
@@ -154,9 +120,19 @@ var is_choice = "";
         <div class="wlfg-wrap clearfix">
             <label class="label-name" >性别</label>
             <div class="rlf-group rlf-radio-group">
+                <?php if($user['user_sex']==0): ?>
                 <label ><input type="radio" hidefocus="true" value="0" checked="checked"  name="sex">保密</label>
-                <label ><input type="radio" hidefocus="true" value="1"  name="sex">男</label>
-                <label ><input type="radio" hidefocus="true" value="2"  name="sex">女</label>
+                <label ><input type="radio" hidefocus="true" value="1"  name="sex" >男</label>
+                <label ><input type="radio" hidefocus="true" value="2"  name="sex" >女</label>
+                <?php elseif($user['user_sex']==1): ?>
+                <label ><input type="radio" hidefocus="true" value="0"  name="sex">保密</label>
+                <label ><input type="radio" hidefocus="true" value="1"  checked="checked" name="sex" >男</label>
+                <label ><input type="radio" hidefocus="true" value="2"  name="sex" >女</label>
+                <?php else: ?>
+                <label ><input type="radio" hidefocus="true" value="0"  name="sex">保密</label>
+                <label ><input type="radio" hidefocus="true" value="1"  name="sex" >男</label>
+                <label ><input type="radio" hidefocus="true" value="2"  checked="checked" name="sex" >女</label>
+                <?php endif; ?>
             </div>
             <p class="rlf-tip-wrap"></p>
         </div>
@@ -164,7 +140,7 @@ var is_choice = "";
         <div class="wlfg-wrap clearfix">
             <label class="label-name" for="aboutme">个性签名</label>
             <div class="rlf-group">
-                <textarea name="aboutme" id="aboutme" cols="30" rows="5" class="textarea"></textarea>
+                <textarea name="aboutme" id="aboutme" cols="30" rows="5" class="textarea"><?php echo e($user['user_content']); ?></textarea>
                 <p class="rlf-tip-wrap"></p>
             </div>
         </div>
@@ -203,12 +179,46 @@ var is_choice = "";
 
 
 <!--script-->
-<script src="/jss/ssologin.js"></script>
+<script src="/js/ssologin.js"></script>
 <script type="text/javascript" src="/js/sea.js"></script>
 <script type="text/javascript" src="/js/sea_config.js?v=201604211612"></script>
-<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+<script type="text/javascript">seajs.use("/s tatic/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+<script src="/js/jquery-1.8.3.min.js"></script>
+<script src="/js/user/profile.js"></script>
+<script>
+    $(function(){
+        //三级联动
+        $('.input').change(function(){
+            if($(this).attr('class')=='input'){
+                var id=$(this).val();
+                var _this=$(this);
+                _this.nextAll().val(0);
+                var one=_this.next().children().html();
+                _this.next().html('<option value="">'+one+'</option>')
+                $.post('sel',{id:id},function(data){
+                    _this.next().append(data)
+                });
+            }
+        });
+        //修改个人资料
+        $('#profile-submit').click(function(){
+            var nick=$('#nick').val();
+            var job=$('#job').val();
+            var sex=$('input[type="radio"]:checked').val();
+            var aboutme=$('#aboutme').val();
+            //alert(aboutme);
+            $.post('change',{nick:nick,job:job,sex:sex,aboutme:aboutme},function(data){
+                //alert(data);
+                if(data==1){
+                    $(".name").html(nick);
+                    alert("修改成功");
+                }
+            });
+        })
+    })
 
- 
+</script>
+
 
 
 <div style="display: none">

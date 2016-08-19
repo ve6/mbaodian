@@ -29,9 +29,9 @@
                 </div>
                 <div class="course-nav-row clearfix">
                     <?php
-                        $vv=isset($_GET['v'])?$_GET['v']:0;
-                        $a=isset($_GET['a'])?$_GET['a']:0;
-                        $l=isset($_GET['l'])?$_GET['l']:0;
+                        //$vv=isset($_GET['v'])?$_GET['v']:0;
+                        //$a=isset($_GET['a'])?$_GET['a']:0;
+                        //$l=isset($_GET['l'])?$_GET['l']:0;
                         $p=isset($_GET['page'])?$_GET['page']:1;
                         ?>
                     <span class="hd l">学院：</span>

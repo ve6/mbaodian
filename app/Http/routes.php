@@ -30,7 +30,12 @@ Route::get('qqLogin','LoginController@qqLogin');
 
 //个人中心
 Route::get('user/setprofile', 'UserController@setprofile');//个人资料
-Route::get('user/setavator', 'UserController@setavator');
+Route::post('user/sel', 'UserController@sel');//三级联动
+Route::post('user/change', 'UserController@change');//修改个人资料
+Route::get('user/setavator', 'UserController@setavator');//头像设置
+Route::post('user/postpic', 'UserController@postpic');//上传头像
+Route::post('/user/qiandao', 'UserController@qiandao');//签到领取积分
+Route::get('user/zw', 'UserController@zw');
 Route::get('user/setphone', 'UserController@setphone');
 Route::get('user/setverifyemail', 'UserController@setverifyemail');
 Route::get('user/setresetpwd', 'UserController@setresetpwd');

@@ -30,7 +30,7 @@
         </div>
         <div id="login-area">
             <ul
-                    @if(Session::get("name"))
+                    @if(Session::get("username"))
                         class="clearfix logined"
                     @else
                         class="header-unlogin clearfix"
@@ -47,7 +47,7 @@
                         <img src="/images/erweima.png">
                     </div>
                 </li>
-                    @if(!Session::get("name"))
+                    @if(!Session::get("username"))
                 <li class="header-signin">
                     <a href="#login-modal" id="" data-category="UserAccount" data-action="login" data-toggle="modal" >登录</a>
                 </li>
@@ -69,7 +69,13 @@
                 </li>
                 <li class="set_btn user-card-box">
                     <a target="_self" href="/user/setprofile" action-type="my_menu" class="user-card-item" id="header-avator">
-                        <img width="50" height="50" src="/images/unknow-40.png">
+                        <img width="50" height="50" src="/<?php
+                        if(Session::get('user_filedir')){
+                            echo Session::get('user_filedir');
+                        }else{
+                            echo "images/unknow-160.png";
+                        };?>">
+
                         <i style="display: none;" class="myspace_remind"></i>
                         <span style="display: none;">动态提醒</span>
                     </a>
@@ -77,11 +83,23 @@
                     <div class="g-user-card">
                         <div class="card-inner">
                             <div class="card-top">
-                                <a href="user/setprofile"><img class="l" alt="{{Session::get('name')}}" src="/images/unknow-160.png"></a>
-                                <a href="user/setprofile"><span class="name text-ellipsis">{{Session::get('name')}}</span></a>
+                                <a href="user/setprofile"><img class="l" alt="{{Session::get('username')}}" src="/<?php
+                                    if(Session::get('user_filedir')){
+                                        echo Session::get('user_filedir');
+                                    }else{
+                                        echo "images/unknow-160.png";
+                                    };?>"></a>
+                                <a href="user/setprofile"><span class="name text-ellipsis">{{Session::get('username')}}</span></a>
+                                {{--经验||积分start--}}
                                 <p class="meta">
 					<a href="/u/3071208/experience">经验<b id="js-user-mp">550</b></a>
-					<a href="/u/3071208/credit">积分<b id="js-user-credit">0</b></a>            </p>
+					<a href="/u/3071208/credit">积分<b id="js-user-credit">{{Session::get('u_score')}}</b></a>
+                                </p>
+                                {{--经验||积分end--}}
+
+                                {{--签到start--}}
+                                <p id="zw"><a href="javascript:void(0)" id="qiandao">签到</a></p>
+                                {{--签到start--}}
 
                                 <a class="icon-set setup" href="/user/setprofile"></a>
                             </div>
@@ -264,7 +282,26 @@
     </div>
 </div>
 <script src="/static/js/landing-min.js?2013032917"></script>
-
 <div style="text-align:center;clear:both"></div>
+<script>
+    $(function(){
+        $.get('/user/zw',function(data){
+            if(data==2){
+                $('#zw').html('已签到');
+            }
+        });
+        $('#qiandao').click(function(){
+            $.post('/user/qiandao',function(data){
+                if(data['error']==0){
+                    alert('签到成功');
+                    var jifen = parseInt($('#js-user-credit').html());
+
+                    $('#js-user-credit').html(jifen+data['msg']);
+                }
+            },"json");
+            $('#zw').html('已签到');
+        });
+    });
+</script>
 
 

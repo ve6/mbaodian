@@ -39,9 +39,9 @@ class LoginController extends Controller
         $user = DB::table('users')->where(['user_phone'=>"$name",'user_pwd'=>"$pwd"])
 			->orwhere(['user_email'=>"$name",'user_pwd'=>"$pwd"])->first();
         if($user){
+            $request->session()->set('u_score',$user['user_score']);
             $request->session()->set('u_id',$user['user_id']);
-			$request->session()->set('username',$name);
-            $request->session()->set('name',$user['user_name']);
+            $request->session()->set('username',$user['user_name']);
             echo 1;
         }else{
             echo 2;
@@ -65,11 +65,11 @@ class LoginController extends Controller
         if($sel){
             $qq_name = $sel['user_nickname'];
             $user_id = $sel['user_id'];
-            $request->session()->set('name',$qq_name);
+            $request->session()->set('username',$qq_name);
             $request->session()->set('user_id',$user_id);
         }else{
             DB::table('users')->insert(['user_nickname'=> $qqname,'user_openid'=>$only]);
-            $request->session()->set('name',$qqname);
+            $request->session()->set('username',$qqname);
         }
         return redirect()->action('IndexController@index');
     }
@@ -110,8 +110,8 @@ class LoginController extends Controller
 
     public function out(Request $request){
         $request->session()->forget('username');
-        $request->session()->forget('name');
         $request->session()->forget('u_id');
+        $request->session()->forget('u_score');
         echo "<script>alert('退出成功');location.href='index'</script>";
     }
 

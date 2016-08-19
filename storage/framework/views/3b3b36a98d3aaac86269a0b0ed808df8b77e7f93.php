@@ -67,26 +67,35 @@ var is_choice = "";
   </div>
   <div class="setting-right">
     <div class="setting-right-wrap wrap-boxes settings" >
-        
+
+<?php /*头像设置start*/ ?>
 <div class="setting-wrap setting-avator clearfix" id="setting-avator">
 	<div class="avator-img l">
-		<div><img width="220" height="220" src="/images/unknow-220.png"></div>
-		<div><input type="button" class="js-avator-try avator-try" value="换一换" hidefocus="true"></div>
+        <form enctype="multipart/form-data" method="post" action="postpic">
+		<div>
+            <img width="220" height="220" src="/
+		<?php
+            if(Session::get('user_filedir')){
+                echo Session::get('user_filedir');
+            }else{
+                echo "images/unknow-160.png";
+            };?>">
+        </div>
+		<div><input type="submit" class="glyphicon glyphicon-home" value="提交"></div>
 	</div>
 	<div class="avator-btn-group">
 		<div class="avator-btn-inner" id="avator-btns">
-				        	        <div class="avator-btn-snswrap">
-	        	<span data-sns="qq" class="l-sns-btn l-sns-qq"><i class="icon-qq"></i>从 QQ 帐号同步头像</span>
-			</div>
-	        	        
+            <?php /*<div class="avator-btn-snswrap"></div>*/ ?>
+
 	        <div class="avator-btn-wrap">
-				<form enctype="multipart/form-data" method="post" action="postpic" target="uploadtarget">
+
 		            <a class="avator-btn-fake" hidefocus="true" href="javascript:void(0)">上传头像</a>
 		            <input type="file" accept="image/*" id="upload" name="fileField" title="上传头像">
-		            <input type="hidden" value="1" name="type">
+		            <?php /*<input type="hidden" value="1" name="type">-}}
 	            </form>
-                <iframe frameborder="0" style="display:none;" name="uploadtarget" id="uploadtarget" src="about:blank"></iframe>
-	        </div>
+                {{--<iframe frameborder="0" style="display:none;" name="uploadtarget" id="uploadtarget" src="about:blank"></iframe>
+	        </div>*/ ?>
+                </form>
 		</div>
 		<div style="display:none;" class="avator-upload-wrap">
 			<span class="rlf-btn-green btn-block" aria-role="button" id="avator-btn-save" hidefocus="true">保存</span>
@@ -94,7 +103,7 @@ var is_choice = "";
 	</div>
 
 </div>
-
+<?php /*头像设置end*/ ?>
 
     </div>
   </div>

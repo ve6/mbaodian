@@ -3,7 +3,7 @@ define(function(require, exports, module){
 	require("/static/component/base/placeholder/placeholder.js");
 	require("/static/component/base/util/validate.js");
 	var mbox=require("/static/page/user/messagebox.js");
-    
+
 	var util = require("/static/page/user/common/settingUitl.js");
 	//prov city area plugin init;
 	$('#province-select').change(function(){
@@ -22,7 +22,7 @@ define(function(require, exports, module){
 			}
 		},'json')
 	});
-	
+
 	$('#city-select').change(function(){
 		$('#area-select').text('').append("<option value='0'>选择区县 </option>");
 		$.get('/user/ajaxchangecity', 'id='+$(this).val(),function(data){
@@ -74,7 +74,7 @@ define(function(require, exports, module){
 		onerror:formOnerror,
 		onvalid:formOnvalid
 	});
-    
+
     $("#job").change(function(){
 		if(!!$(this).val()){
 			formOnvalid.call(this,{_relateField:this});
@@ -95,14 +95,14 @@ define(function(require, exports, module){
             $('.rlf-select').next('.rlf-tip-wrap').addClass('rlf-tip-error').show().html('请选择职位！')
             return;
         }
-        
-        $form=$this.closest("form");	
-        
+
+        $form=$this.closest("form");
+
 		$form.validate({
 			success:function(vals){
-                                
+
 				var postData={
-					type:1  
+					type:1
 				};
 				postData.job = $("#job").val();
 				postData.sex = $("#profile input[name='sex']:checked").val();
