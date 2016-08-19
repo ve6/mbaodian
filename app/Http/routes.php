@@ -61,7 +61,7 @@ Route::get('detail', 'WendaController@detail');
 //评论
 Route::post('hui', 'WendaController@hui');
 //点赞
-Route::get('zid', 'WendaController@zid');
+Route::any('answer_zan', 'WendaController@answer_zan');
 /*
  * 猿问结束
  */
@@ -106,11 +106,14 @@ Route::get('register','LoginController@register');
 //登陆
 Route::post('login', 'CommonController@login');
 //公司试题
-Route::get('company', 'CompanyController@index');
+
 Route::get('college','CompanyController@college');
 Route::get('college_x','CompanyController@college_x');
 Route::get('college_exam','CompanyController@college_exam');
 
+/*简历*/
+Route::get('company', 'CompanyController@index');
+Route::get('company/{type}', 'CompanyController@index');
 
 
 /*

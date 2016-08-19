@@ -32,8 +32,8 @@ var is_choice = "";
 <body style="background:#fff;">
 
 
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
 @parent
 <div style="" id="main">
 
@@ -172,7 +172,7 @@ window._bd_share_config = {
 
 
 								<input type='hidden' value='<?php echo $val['com_id'] ?>' class='com_id'/>
-                                <b class='agree'>赞同{!!$count!!}</b>
+                                <b class='agree'>赞同<?php echo $count; ?></b>
                                 
 
 
@@ -221,7 +221,8 @@ window._bd_share_config = {
             </div>
             <!-- 回答回复 end --><?php } ?>
 			
-			{!! $arr_com->appends(['id'=>$arr['t_id']])->links() !!}
+			<?php echo $arr_com->appends(['id'=>$arr['t_id']])->links(); ?>
+
 
 
             <div class="qa-comment-page">
@@ -411,4 +412,5 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
 	}) 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

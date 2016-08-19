@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <meta charset="utf-8">
@@ -32,9 +31,9 @@ var is_choice = "0";
 </head>
 <body style="background:#fff;">
 
-@extends('layouts.master')
-@section('sidebar')
-@parent            
+
+<?php $__env->startSection('sidebar'); ?>
+@parent                        
         <div class='search-warp clearfix' style='min-width: 32px; height: 60px;'>
             <div class="search-area min" data-search="top-banner">
                 <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="请输入想搜索的内容..." type="text" autocomplete="off">
@@ -416,5 +415,7 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
 
 </body>
 
-@endsection
+<?php $__env->stopSection(); ?>
 </html>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

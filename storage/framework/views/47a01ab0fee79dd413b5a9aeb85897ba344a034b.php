@@ -29,8 +29,8 @@ var is_choice = "";
 <script src="js/jquery.js" async="" charset="utf-8"></script><script src="js/seajs-text.js" async="" charset="utf-8"></script><script src="js/common.js" async="" charset="utf-8"></script><script src="js/string.js" async="" charset="utf-8"></script><script src="js/suggest.js" async="" charset="utf-8"></script><script src="js/store.js" async="" charset="utf-8"></script><script src="js/json.js" async="" charset="utf-8"></script><script src="js/im.js" async="" charset="utf-8"></script><script src="js/save.js" async="" charset="utf-8"></script><script src="js/socket.js" async="" charset="utf-8"></script><script src="js/autocomplete.js" async="" charset="utf-8"></script><script src="js/verify-code.js" async="" charset="utf-8"></script><link rel="stylesheet" type="text/css" href="../css/ueditorhx.css"><script defer="defer" type="text/javascript" src="js/codemirror.js"></script><link href="../css/codemirrorhx.css" type="text/css" rel="stylesheet"><script defer="defer" type="text/javascript" src="js/ZeroClipboard.js"></script></head>
 <body style="background:#fff;">
 
-@extends('layouts.master')
-@section('sidebar')
+
+<?php $__env->startSection('sidebar'); ?>
 @parent
 
 
@@ -73,9 +73,9 @@ var is_choice = "";
 
                 <select name="pro" id="pro" class="select">
                     <option value="0">请选择</option>
-                        @foreach($pro as $k=>$v)
+                        <?php foreach($pro as $k=>$v): ?>
                             <option value="<?php echo $v['d_id'];?>"><?php echo $v['d_name']?></option>
-                        @endforeach
+                        <?php endforeach; ?>
                 </select>  
 
 
@@ -186,7 +186,7 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
 		}
     })
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
@@ -207,3 +207,5 @@ var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
 
 
 
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
